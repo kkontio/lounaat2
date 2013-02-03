@@ -8,6 +8,7 @@ gem 'rails', '3.2.11'
 gem 'pg'
 gem 'haml'
 gem 'nokogiri'
+gem 'unicode'
 
 group :development, :test do
   gem 'ruby-debug19'
@@ -19,6 +20,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'factory_girl_rails'
+  gem 'hirb'
 end
 
 group :test do
