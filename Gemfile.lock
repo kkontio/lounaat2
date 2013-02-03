@@ -197,6 +197,7 @@ DEPENDENCIES
   haml
   jquery-rails
   launchy
+  nokogiri
   pg
   rails (= 3.2.11)
   rspec-rails
