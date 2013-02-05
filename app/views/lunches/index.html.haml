@@ -1,9 +1,9 @@
 - @lunches_by_date.each do |date, lunches|
-  .day
+  .day{:class => cycle("odd", "even")}
     .date{:id => "#{date.to_s}"}
       = date.to_s
     - lunches.each do |lunch|
-      .restaurant{:id => "#{lunch.restaurant.name}"}
+      .restaurant{:id => "#{lunch.restaurant.name.gsub(/\s/, "_")}"}
         .restaurant_name
           = lunch.restaurant.name
         %ul
