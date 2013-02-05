@@ -19,3 +19,6 @@
 
 # Ignore RubyMine
 /.idea
+
+# Ignore .env
+/.env
