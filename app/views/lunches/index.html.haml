@@ -1,7 +1,8 @@
-- @lunches.each do |l|
+- @lunches_by_date.each do |date, lunches|
   %div
-    = l.restaurant.name
-  %div
-    = l.date
-  %pre
-    = l.description
+    = date.to_s
+  - lunches.each do |lunch|
+    %div
+      = lunch.restaurant.name
+    %pre
+      = lunch.description
