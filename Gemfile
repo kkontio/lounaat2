@@ -9,6 +9,7 @@ gem 'pg'
 gem 'haml'
 gem 'nokogiri'
 gem 'unicode'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'ruby-debug19'
