@@ -1,8 +1,10 @@
 - @lunches_by_date.each do |date, lunches|
-  %div
-    = date.to_s
-  - lunches.each do |lunch|
-    %div
-      = lunch.restaurant.name
-    %pre
-      = lunch.description
+  .day
+    .date{:id => "#{date.to_s}"}
+      = date.to_s
+    - lunches.each do |lunch|
+      .restaurant{:id => "#{lunch.restaurant.name}"}
+        .restaurant_name
+          = lunch.restaurant.name
+        %ul
+          = lunch.description.html_safe
