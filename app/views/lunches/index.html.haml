@@ -5,7 +5,7 @@
         <div class="row-fluid">
       - if i == 0
         %h3.date.span2{:id => "#{date.to_s}"}
-          = date.to_s
+          = "#{date.day.to_s}.#{date.month.to_s}.#{date.year.to_s}"
       .restaurant.span3{:id => "#{lunch.restaurant.name.gsub(/\s/, "_")}", :class => i % 3 == 0 && i != 0 ? "offset2" : ""}
         %h5.restaurant_name
           = lunch.restaurant.name
