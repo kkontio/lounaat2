@@ -27,6 +27,8 @@ header.hero-unit h1 {
 }
 
 header.hero-unit p {
+    font-family: "Roboto Condensed";
+    font-weight: 300;
     font-style: italic;
 }
 
