@@ -21,6 +21,15 @@ header.hero-unit {
     border-radius: 0px;
 }
 
+header.hero-unit h1 {
+    font-family: "Mr Dafoe";
+    font-weight: normal;
+}
+
+header.hero-unit p {
+    font-style: italic;
+}
+
 .blue {
     color: #008ED6;
 }

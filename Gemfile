@@ -10,6 +10,7 @@ gem 'haml'
 gem 'nokogiri'
 gem 'unicode'
 gem 'thin'
+gem 'google-webfonts'
 
 group :development, :test do
   gem 'ruby-debug19'
