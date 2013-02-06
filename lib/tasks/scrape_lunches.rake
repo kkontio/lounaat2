@@ -35,8 +35,10 @@ task :scrape_lunches => :environment do
 
             dd_tags.each do |dd_tag|
               dd_tag.css('li').map do |li_tag|
-                desc ||= ""
-                desc << "<li>#{li_tag.content}</li>"
+                unless li_tag.content.length < 3
+                  desc ||= ""
+                  desc << "<li>#{li_tag.content}</li>"
+                end
               end
             end
 
@@ -75,8 +77,10 @@ task :scrape_lunches => :environment do
 
             dd_tags.each do |dd_tag|
               dd_tag.css('li').map do |li_tag|
-                desc ||= ""
-                desc << "<li>#{li_tag.content}</li>"
+                unless li_tag.content.length < 3
+                  desc ||= ""
+                  desc << "<li>#{li_tag.content}</li>"
+                end
               end
             end
 
@@ -115,11 +119,13 @@ task :scrape_lunches => :environment do
 
             dd_tags.each do |dd_tag|
               dd_tag.css('p').map do |p_tag|
-                s = p_tag.content
-                s = Unicode::downcase(s)
-                s[0] = s[0].capitalize
-                desc ||= ""
-                desc << "<li>#{s}</li>"
+                unless p_tag.content.length < 3
+                  s = p_tag.content
+                  s = Unicode::downcase(s)
+                  s[0] = s[0].capitalize
+                  desc ||= ""
+                  desc << "<li>#{s}</li>"
+                end
               end
             end
 
@@ -158,10 +164,12 @@ task :scrape_lunches => :environment do
 
             dd_tags.each do |dd_tag|
               dd_tag.css('p').map do |p_tag|
-                s = p_tag.content
-                s[0] = Unicode::capitalize(s[0])
-                desc ||= ""
-                desc << "<li>#{s}</li>"
+                unless p_tag.content.length < 3
+                  s = p_tag.content
+                  s[0] = Unicode::capitalize(s[0])
+                  desc ||= ""
+                  desc << "<li>#{s}</li>"
+                end
               end
             end
 
@@ -200,8 +208,10 @@ task :scrape_lunches => :environment do
 
             dd_tags.each do |dd_tag|
               dd_tag.css('p').map do |p_tag|
-                desc ||= ""
-                desc << "<li>#{p_tag.content}</li>"
+                unless p_tag.content.length < 3
+                  desc ||= ""
+                  desc << "<li>#{p_tag.content}</li>"
+                end
               end
             end
 
@@ -242,7 +252,7 @@ task :scrape_lunches => :environment do
               dd_tag.css('p').map do |p_tag|
                 unless p_tag.content.length < 3
                   desc ||= ""
-                  desc << "<li>#{p_tag.content}</li>"
+                  desc << "<li>#{p_tag.content.gsub("\u00a0", ' ').strip}</li>"
                 end
               end
             end
