@@ -22,11 +22,13 @@ header.hero-unit {
 }
 
 header.hero-unit h1 {
+    margin-left: 5%;
     font-family: "Mr Dafoe";
     font-weight: normal;
 }
 
 header.hero-unit p {
+    margin-left: 5%;
     font-family: "Roboto Condensed";
     font-weight: 300;
     font-style: italic;
