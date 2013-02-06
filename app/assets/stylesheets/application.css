@@ -20,3 +20,11 @@ header.hero-unit {
     -moz-border-radius: 0px;
     border-radius: 0px;
 }
+
+.blue {
+    color: #008ED6;
+}
+
+.red {
+    color: #F03335;
+}
