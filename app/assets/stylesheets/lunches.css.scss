@@ -7,10 +7,10 @@
   margin-left: 15px;
 }
 
-.date {
+div.date {
   min-height: 114px !important;
 }
-.calendar {
+p.calendar {
   margin: .25em 10px 10px 0;
   padding-top: 5px;
   float: left;
@@ -20,7 +20,7 @@
   background: -moz-linear-gradient(top, #ededef, #ccc);
   background: -ms-linear-gradient(top, #ededef, #ccc);
   background: linear-gradient(to bottom, #ededef, #ccc);
-  font: bold 30px/60px Arial Black, Arial, Helvetica, sans-serif !important;
+  font: bold 30px/60px Arial Black, Arial, Helvetica, sans-serif;
   text-align: center;
   color: #000;
   text-shadow: #fff 0 1px 0;
@@ -29,7 +29,7 @@
   box-shadow: 0 2px 2px #888;
 }
 
-.calendar em {
+p.calendar em {
   display: block;
   font: normal bold 11px/30px Arial, Helvetica, sans-serif;
   color: #fff;
