@@ -62,3 +62,15 @@ p.calendar span.wday {
   color: #000;
   text-shadow: #fff 0 1px 0;
 }
+
+div.day {
+  border-top: 1px solid #E5E5E5;
+  margin-top: 10px;
+  padding-top: 15px;
+}
+
+div.first_day {
+  border-top: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
