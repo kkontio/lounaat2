@@ -20,7 +20,10 @@ p.calendar {
   background: -moz-linear-gradient(top, #ededef, #ccc);
   background: -ms-linear-gradient(top, #ededef, #ccc);
   background: linear-gradient(to bottom, #ededef, #ccc);
-  font: bold 30px/60px Arial Black, Arial, Helvetica, sans-serif;
+  font-family: 'Arial Black', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 60px;
   text-align: center;
   color: #000;
   text-shadow: #fff 0 1px 0;
