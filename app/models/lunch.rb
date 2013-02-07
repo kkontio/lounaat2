@@ -4,7 +4,7 @@ class Lunch < ActiveRecord::Base
   belongs_to :restaurant
 
   def self.lunches_by_date()
-    lunches = Lunch.includes(:restaurant).where("date >= ?", Date.today).order("date")
+    lunches = includes(:restaurant).where("date >= ?", Date.today).order('date')
 
     h = {}
 

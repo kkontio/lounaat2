@@ -11,6 +11,7 @@ gem 'nokogiri'
 gem 'unicode'
 gem 'thin'
 gem 'google-webfonts'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'ruby-debug19'
@@ -41,8 +42,6 @@ group :assets do
 
   gem 'twitter-bootstrap-rails'
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
