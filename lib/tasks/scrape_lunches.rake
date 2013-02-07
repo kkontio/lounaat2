@@ -295,6 +295,7 @@ task :scrape_lunches => :environment do
                 unless p_tag.content.length < 3
                   s = p_tag.content
                   s = Unicode::downcase(s)
+                  s[0] = '' if s[0] == '-'
                   s[0] = Unicode::capitalize(s[0])
                   desc ||= ""
                   desc << "<li>#{s}</li>"
