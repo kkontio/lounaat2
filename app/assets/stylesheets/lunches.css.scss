@@ -34,7 +34,7 @@ p.calendar {
 
 p.calendar span.month {
   display: block;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 11px;
@@ -53,7 +53,7 @@ p.calendar span.month {
 
 p.calendar span.wday {
   display: block;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   line-height: 20px;
   margin-bottom: -10px;
   font-style: normal;
@@ -62,29 +62,3 @@ p.calendar span.wday {
   color: #000;
   text-shadow: #fff 0 1px 0;
 }
-
-/*
-.calendar em:before, .calendar em:after {
-  content: '';
-  float: left;
-  position: absolute;
-  top: -5px;
-  width: 4px;
-  height: 14px;
-  background: #dadada;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1), to(#aaa));
-  background: -moz-linear-gradient(top,  #f1f1f1,  #aaa);
-  background: -ms-linear-gradient(top,  #f1f1f1,  #aaa);
-  background: linear-gradient(top,  #f1f1f1,  #aaa);
-  z-index:2;
-  border-radius: 2px;
-}
-
-.calendar em:before {
-  left: 13px;
-}
-
-.calendar em:after {
-  right:13px;
-}
-*/

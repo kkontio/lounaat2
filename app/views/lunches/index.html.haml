@@ -7,7 +7,7 @@
         .date.span2{:id => "#{date.to_s}"}
           %p.calendar
             %span.wday
-              = date.wday_fi
+              = date.wday_fi.upcase
             = date.mday
             %span.month
               = date.month_fi
