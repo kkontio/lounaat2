@@ -12,7 +12,7 @@
             %span.month
               = date.month_fi
       .restaurant.span3{:id => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :class => i % 3 == 0 && i != 0 ? 'offset2' : ''}
-        %h5.restaurant_name
+        %h4.restaurant_name
           = lunch.restaurant.name
         %ul
           = lunch.description.html_safe
