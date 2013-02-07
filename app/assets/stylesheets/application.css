@@ -44,3 +44,11 @@ header.hero-unit p {
 .red {
     color: #F03335;
 }
+
+footer {
+    background-color: #eeeeee;
+    padding: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #E5E5E5;
+    font-family: "Roboto Condensed",sans-serif;
+}
