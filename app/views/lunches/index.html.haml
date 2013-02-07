@@ -6,8 +6,10 @@
       - if i == 0
         .date.span2{:id => "#{date.to_s}"}
           %p.calendar
+            %span.wday
+              = date.wday_fi
             = date.mday
-            %em
+            %span.month
               = date.month_fi
       .restaurant.span3{:id => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :class => i % 3 == 0 && i != 0 ? 'offset2' : ''}
         %h5.restaurant_name
