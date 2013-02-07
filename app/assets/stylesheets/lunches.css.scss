@@ -17,10 +17,10 @@
   width: 80px;
   background: #ededef;
   background: -webkit-gradient(linear, left top, left bottom, from(#ededef), to(#ccc));
-  background: -moz-linear-gradient(top,  #ededef,  #ccc);
-  background: -ms-linear-gradient(top,  #ededef,  #ccc);
-  background: linear-gradient(top,  #ededef,  #ccc);
-  font: bold 30px/60px Arial Black, Arial, Helvetica, sans-serif;
+  background: -moz-linear-gradient(top, #ededef, #ccc);
+  background: -ms-linear-gradient(top, #ededef, #ccc);
+  background: linear-gradient(to bottom, #ededef, #ccc);
+  font: bold 30px/60px Arial Black, Arial, Helvetica, sans-serif !important;
   text-align: center;
   color: #000;
   text-shadow: #fff 0 1px 0;
@@ -36,9 +36,9 @@
   text-shadow: #008ED6 0 -1px 0;
   background: #01B6EF;
   background: -webkit-gradient(linear, left top, left bottom, from(#01B6EF), to(#008ED6));
-  background: -moz-linear-gradient(top,  #01B6EF,  #008ED6);
-  background: -ms-linear-gradient(top,  #01B6EF,  #008ED6);
-  background: linear-gradient(top,  #01B6EF,  #008ED6);
+  background: -moz-linear-gradient(top, #01B6EF, #008ED6);
+  background: -ms-linear-gradient(top, #01B6EF, #008ED6);
+  background: linear-gradient(to bottom, #01B6EF, #008ED6);
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   border-top: 1px solid #008ED6;
