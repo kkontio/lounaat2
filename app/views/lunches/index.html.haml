@@ -1,5 +1,5 @@
 - @lunches_by_date.each do |date, lunches|
-  .day{:class => date == Date.today ? 'first_day' : ''}
+  .day{:class => date == @lunches_by_date.keys.first ? 'first_day' : ''}
     - lunches.each_with_index do |lunch, i|
       - if i % 3 == 0
         <div class="row-fluid">
