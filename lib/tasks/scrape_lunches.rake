@@ -14,7 +14,7 @@ task :scrape_lunches => :environment do
         puts "*** Scraping: #{r.name} ***"
 
         begin
-          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/showlunch")
+          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/showlunch", :read_timeout => 10)
           doc = Nokogiri::HTML(html.read)
           doc.encoding = 'utf-8'
 
@@ -56,7 +56,7 @@ task :scrape_lunches => :environment do
         puts "*** Scraping: #{r.name} ***"
 
         begin
-          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/caf-buffo/showlunch")
+          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/caf-buffo/showlunch", :read_timeout => 10)
           doc = Nokogiri::HTML(html.read)
           doc.encoding = 'utf-8'
 
@@ -98,7 +98,7 @@ task :scrape_lunches => :environment do
         puts "*** Scraping: #{r.name} ***"
 
         begin
-          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/chico-s/showlunch")
+          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/chico-s/showlunch", :read_timeout => 10)
           doc = Nokogiri::HTML(html.read)
           doc.encoding = 'utf-8'
 
@@ -143,7 +143,7 @@ task :scrape_lunches => :environment do
         puts "*** Scraping: #{r.name} ***"
 
         begin
-          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/showlunch")
+          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/showlunch", :read_timeout => 10)
           doc = Nokogiri::HTML(html.read)
           doc.encoding = 'utf-8'
 
@@ -187,7 +187,7 @@ task :scrape_lunches => :environment do
         puts "*** Scraping: #{r.name} ***"
 
         begin
-          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/showlunch")
+          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/showlunch", :read_timeout => 10)
           doc = Nokogiri::HTML(html.read)
           doc.encoding = 'utf-8'
 
@@ -229,7 +229,7 @@ task :scrape_lunches => :environment do
         puts "*** Scraping: #{r.name} ***"
 
         begin
-          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/carlito-s/showlunch")
+          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/carlito-s/showlunch", :read_timeout => 10)
           doc = Nokogiri::HTML(html.read)
           doc.encoding = 'utf-8'
 
@@ -271,7 +271,7 @@ task :scrape_lunches => :environment do
         puts "*** Scraping: #{r.name} ***"
 
         begin
-          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ilgabbiano/showlunch")
+          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ilgabbiano/showlunch", :read_timeout => 10)
           doc = Nokogiri::HTML(html.read)
           doc.encoding = 'utf-8'
 

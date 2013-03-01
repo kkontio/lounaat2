@@ -3,7 +3,7 @@ desc 'Prevent our sole webdyno from idling'
 task :heroku_unidle do
   require 'open-uri'
   begin
-    html = open('http://lounaat2.herokuapp.com')
+    html = open('http://lounaat2.herokuapp.com', :read_timeout => 10)
     html.read
     puts 'Pinged http://lounaat2.herokuapp.com'
   rescue
