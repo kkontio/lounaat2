@@ -78,8 +78,11 @@ task :scrape_lunches => :environment do
             dd_tags.each do |dd_tag|
               dd_tag.css('li').map do |li_tag|
                 unless li_tag.content.length < 3
+                  s = li_tag.content
+                  s = Unicode::downcase(s)
+                  s[0] = Unicode::capitalize(s[0])
                   desc ||= ""
-                  desc << "<li>#{li_tag.content}</li>"
+                  desc << "<li>#{s}</li>"
                 end
               end
             end
