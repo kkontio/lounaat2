@@ -12,6 +12,7 @@ gem 'unicode'
 gem 'thin'
 gem 'google-webfonts'
 gem 'jquery-rails'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'ruby-debug19'
