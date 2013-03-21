@@ -17,6 +17,9 @@
 # Ignore database config
 /config/database.yml
 
+# Ignore secret token
+/config/initializers/secret_token.rb
+
 # Ignore RubyMine
 /.idea
 
