@@ -5,7 +5,7 @@ require 'bundler/capistrano'
 set :application, 'lepuskilounas'
 set :repository,  'https://code.google.com/p/lepuskilounas/'
 set :scm, :git
-set :user, 'deploy'
+set :user, 'yourdeployuser'
 set :use_sudo, false
 set :deploy_via, :remote_cache
 set :deploy_to, "/your/app/path/#{application}"
