@@ -1,6 +1,7 @@
 set :rvm_type, :system
 require 'rvm/capistrano'
 require 'bundler/capistrano'
+require 'whenever/capistrano'
 
 set :application, 'lepuskilounas'
 set :repository,  'https://code.google.com/p/lepuskilounas/'
