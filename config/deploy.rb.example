@@ -1,0 +1,43 @@
+set :rvm_type, :system
+require 'rvm/capistrano'
+require 'bundler/capistrano'
+
+set :application, 'lepuskilounas'
+set :repository,  'https://code.google.com/p/lepuskilounas/'
+set :scm, :git
+set :user, 'deploy'
+set :use_sudo, false
+set :deploy_via, :remote_cache
+set :deploy_to, "/your/app/path/#{application}"
+
+role :web, 'yourserverhere'                   # Your HTTP server, Apache/etc
+role :app, 'yourserverhere'                   # This may be the same as your `Web` server
+role :db,  'yourserverhere', :primary => true # This is where Rails migrations will run
+
+# if you want to clean up old releases on each deploy uncomment this:
+after "deploy:restart", "deploy:cleanup"
+
+# symlink server specific files
+after 'deploy:update_code', 'deploy:symlink_db'
+after 'deploy:update_code', 'deploy:symlink_secret_token'
+
+namespace :deploy do
+  # Passenger mod_rails restart
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+
+  desc 'Symlinks the database.yml'
+  task :symlink_db, :roles => :app do
+    run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
+  end
+
+  desc 'Symlinks the secret_token.rb'
+  task :symlink_secret_token, :roles => :app do
+    run "ln -nfs #{deploy_to}/shared/config/initializers/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
+  end
+end
+
+

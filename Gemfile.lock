@@ -172,6 +172,8 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.9)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -241,6 +243,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   ruby-debug19
+  rvm-capistrano
   sass-rails
   shoulda-matchers
   simplecov
