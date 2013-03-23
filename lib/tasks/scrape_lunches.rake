@@ -333,6 +333,8 @@ task :scrape_lunches => :environment do
   restaurants << "Carlito's"
   restaurants << "Lokki"
 
+  puts "Scrape started #{Time.now.to_s}"
+
   restaurants.each do |r|
     parse_lunch r
   end
