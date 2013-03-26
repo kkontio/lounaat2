@@ -1,20 +1,25 @@
 - @lunches_by_date.each do |date, lunches|
-  .day{:class => date == @lunches_by_date.keys.first ? 'first_day' : ''}
-    - lunches.each_with_index do |lunch, i|
-      - if i % 3 == 0
-        <div class="row-fluid">
-      - if i == 0
-        .date.span2{:id => "#{date.to_s}"}
-          %p.calendar
-            %span.wday
-              = date.wday_fi.upcase
-            = date.mday
-            %span.month
-              = date.month_fi
-      .restaurant.span3{:class => i % 3 == 0 && i != 0 ? "offset2 #{lunch.restaurant.name.gsub(/\s/, '_')}" : "#{lunch.restaurant.name.gsub(/\s/, '_')}"}
-        %h4.restaurant_name
-          = lunch.restaurant.name
-        %ul
-          = lunch.description.html_safe
-      - if (i - 2) % 3 == 0 || i == lunches.length - 1
-        </div>
+  .day.row-fluid{:class => date == @lunches_by_date.keys.first ? 'first_day' : ''}
+    .date.span2{:id => "#{date.to_s}"}
+      %p.calendar
+        %span.wday
+          = date.wday_fi.upcase
+        = date.mday
+        %span.month
+          = date.month_fi
+    .restaurants.span10
+      - lunches.each_with_index do |lunch, i|
+        - if i % 3 == 0
+          <div class="row-fluid restaurant_row">
+        .restaurant.span4{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}"}
+          .restaurant_name
+            %h4
+              = lunch.restaurant.name
+          %ul
+            = lunch.description.html_safe
+        - if (i - 2) % 3 == 0 || i == (lunches.length - 1)
+          </div>
+
+
+
+
