@@ -8,17 +8,7 @@
         %span.month
           = date.month_fi
     .restaurants.span10
-      - lunches.each_with_index do |lunch, i|
-        - if i % 3 == 0
-          <div class="row-fluid restaurant_row">
-        .restaurant.span4{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}"}
-          .restaurant_name
-            %h4
-              = lunch.restaurant.name
-              %span.votes{:id => "lunch_#{lunch.id}_votes"}
-              = lunch.votes
-              = link_to '<3', vote_lunch_path(lunch), :method => :post
-          %ul
-            = lunch.description.html_safe
-        - if (i - 2) % 3 == 0 || i == (lunches.length - 1)
-          </div>
+      - lunches.each_slice(3) do |row_of_lunches|
+        .row-fluid.restaurant_row
+          - row_of_lunches.each do |lunch|
+            = render(lunch)
