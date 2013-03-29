@@ -15,6 +15,9 @@
           .restaurant_name
             %h4
               = lunch.restaurant.name
+              %span.votes{:id => "lunch_#{lunch.id}_votes"}
+              = lunch.votes
+              = link_to '<3', vote_lunch_path(lunch), :method => :post
           %ul
             = lunch.description.html_safe
         - if (i - 2) % 3 == 0 || i == (lunches.length - 1)

@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130203174126) do
+ActiveRecord::Schema.define(:version => 20130329143038) do
 
   create_table "lunches", :force => true do |t|
     t.integer  "restaurant_id"
     t.text     "description"
     t.date     "date"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "votes",         :default => 0
   end
 
   add_index "lunches", ["date"], :name => "index_lunches_on_date"

@@ -1,7 +1,10 @@
 Lounas::Application.routes.draw do
-  resources :lunches
+  resources :lunches do
+    member do
+      post 'vote'
+    end
+  end
 
-  resources :restaurants
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
