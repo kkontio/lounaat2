@@ -7,6 +7,8 @@ class LunchesController < ApplicationController
     if request.xhr?
       flash[:error] = "Istuntosi oli vanhentunut. Yritä uudelleen."
       render :js => "window.location = '/'"
+    else
+      redirect_to root_path
     end
   end
 
