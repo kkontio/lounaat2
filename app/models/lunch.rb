@@ -3,19 +3,19 @@ class Lunch < ActiveRecord::Base
   validates :date, :uniqueness => { :scope => :restaurant_id }
   belongs_to :restaurant
 
-  def self.lunches_by_date()
+  def self.lunches_by_date
     lunches = includes(:restaurant).where("date >= ?", Date.today).order('date')
 
-    l_by_d = {}
+    h = {}
 
     lunches.each do |l|
-      l_by_d[l.date] ||= []
-      l_by_d[l.date] << l
+      h[l.date] ||= []
+      h[l.date] << l
     end
 
-    l_by_d.values.each { |v| v.sort! { |a,b| a.restaurant.name <=> b.restaurant.name } }
+    h.values.each { |v| v.sort! { |a,b| a.restaurant.name <=> b.restaurant.name } }
 
-    return l_by_d
+    return h
   end
 
   def add_vote

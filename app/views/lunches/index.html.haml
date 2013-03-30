@@ -11,4 +11,5 @@
       - lunches.each_slice(3) do |row_of_lunches|
         .row-fluid.restaurant_row
           - row_of_lunches.each do |lunch|
-            = render(lunch)
+            .restaurant.span4{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
+              = render(lunch)

@@ -20,6 +20,10 @@
       %p
         Ante prandium
 
+    - if flash[:error]
+      #flash-error.flash.container-fluid
+        %p.alert.alert-error= flash[:error]
+
     #main.container-fluid
       = yield
 

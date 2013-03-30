@@ -23,6 +23,7 @@ after "deploy:restart", "deploy:cleanup"
 # symlink server specific files
 after 'deploy:update_code', 'deploy:symlink_db'
 after 'deploy:update_code', 'deploy:symlink_secret_token'
+after 'deploy', 'deploy:migrate'
 
 namespace :deploy do
   # Passenger mod_rails restart

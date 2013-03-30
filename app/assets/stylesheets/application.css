@@ -37,6 +37,10 @@ header.hero-unit p {
     font-style: italic;
 }
 
+#flash-error {
+    text-align: center;
+}
+
 .blue {
     color: #008ED6;
 }

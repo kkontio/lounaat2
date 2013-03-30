@@ -1,9 +1,9 @@
-.restaurant.span4{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}"}
-  .restaurant_name
-    %h4
+.restaurant_name
+  %h4
+    = link_to vote_lunch_path(lunch), :class => 'btn btn-info', :method => :post, :remote => true do
       = lunch.restaurant.name
-      %span.votes{:id => "lunch_#{lunch.id}_votes"}
       = lunch.votes
-      = link_to '<3', vote_lunch_path(lunch), :method => :post
-  %ul
-    = lunch.description.html_safe
+      x
+      %i.icon-heart
+%ul
+  = lunch.description.html_safe
