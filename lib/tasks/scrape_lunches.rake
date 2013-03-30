@@ -37,7 +37,9 @@ task :scrape_lunches => :environment do
               dd_tag.css('li').map do |li_tag|
                 unless li_tag.content.length < 3
                   desc ||= ""
-                  desc << "<li>#{li_tag.content}</li>"
+                  s = li_tag.content
+                  s = beautify_allergies(s)
+                  desc << "<li>#{s}</li>"
                 end
               end
             end
@@ -81,6 +83,7 @@ task :scrape_lunches => :environment do
                   s = li_tag.content
                   s = Unicode::downcase(s)
                   s[0] = Unicode::capitalize(s[0])
+                  s = beautify_allergies(s)
                   desc ||= ""
                   desc << "<li>#{s}</li>"
                 end
@@ -126,6 +129,7 @@ task :scrape_lunches => :environment do
                   s = p_tag.content
                   s = Unicode::downcase(s)
                   s[0] = s[0].capitalize
+                  s = beautify_allergies(s)
                   desc ||= ""
                   desc << "<li>#{s}</li>"
                 end
@@ -170,6 +174,7 @@ task :scrape_lunches => :environment do
                 unless p_tag.content.length < 3
                   s = p_tag.content
                   s[0] = Unicode::capitalize(s[0])
+                  s = beautify_allergies(s)
                   desc ||= ""
                   desc << "<li>#{s}</li>"
                 end
@@ -213,7 +218,9 @@ task :scrape_lunches => :environment do
               dd_tag.css('p').map do |p_tag|
                 unless p_tag.content.length < 3
                   desc ||= ""
-                  desc << "<li>#{p_tag.content}</li>"
+                  s = p_tag.content
+                  s = beautify_allergies(s)
+                  desc << "<li>#{s}</li>"
                 end
               end
             end
@@ -255,7 +262,9 @@ task :scrape_lunches => :environment do
               dd_tag.css('p').map do |p_tag|
                 unless p_tag.content.length < 3
                   desc ||= ""
-                  desc << "<li>#{p_tag.content.gsub("\u00a0", ' ').strip}</li>"
+                  s = p_tag.content.gsub("\u00a0", ' ').strip
+                  s = beautify_allergies(s)
+                  desc << "<li>#{s}</li>"
                 end
               end
             end
@@ -303,6 +312,7 @@ task :scrape_lunches => :environment do
                   s[0] = '' if s[0] == '-'
                   s = s.strip
                   s[0] = Unicode::capitalize(s[0])
+                  s = beautify_allergies(s)
                   desc ||= ""
                   desc << "<li>#{s}</li>"
                 end
@@ -325,6 +335,15 @@ task :scrape_lunches => :environment do
 
   def parse_date(date_string)
     Date::strptime(/\d{1,2}\.\d{1,2}\./.match(date_string).to_s + Time.now.year.to_s, '%d.%m.%Y')
+  end
+
+  def beautify_allergies(s)
+    partitions = s.partition(/\(\s*(vl|[lg])\s*((\/|,)\s*(vl|[lg]))*\s*\)/i)
+    unless partitions[1].empty?
+      partitions[1] = partitions[1].gsub(/[[:space:]]/, '')
+      partitions[1] = Unicode::upcase(partitions[1])
+    end
+    return partitions.join
   end
 
   restaurants = []
