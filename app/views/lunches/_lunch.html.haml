@@ -1,9 +1,17 @@
-.restaurant_name
-  %h4
-    = link_to vote_lunch_path(lunch), :class => 'btn btn-info', :method => :post, :remote => true do
-      = lunch.restaurant.name
-      = lunch.votes
-      x
-      %i.icon-heart
+%h4.restaurant_header
+  %span.restaurant_name
+    = lunch.restaurant.name
+
+  - if session[:votes].include?(lunch.id.to_s)
+    %span.restaurant_votes.text-success
+      - if lunch.votes > 0
+        = "#{lunch.votes}&nbsp;&#215;&nbsp;".html_safe
+      %i.icon-thumbs-up
+  - else
+    %span.restaurant_votes
+      = link_to vote_lunch_path(lunch), :method => :post, :remote => true do
+        - if lunch.votes > 0
+          = "#{lunch.votes}&nbsp;&#215;&nbsp;".html_safe
+        %i.icon-thumbs-up
 %ul
   = lunch.description.html_safe

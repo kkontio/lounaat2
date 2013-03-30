@@ -2,24 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.restaurant ul {
-  margin-left: 0;
-}
-
-.restaurant li {
-  list-style: none;
-  border-left: 3px solid #01B6EF;
-  background: #f7f7f7;
-  background: -webkit-gradient(linear, left center, right center, from(#f7f7f7), color-stop(50%, #ffffff), to(#ffffff));
-  background: -moz-linear-gradient(left, #f7f7f7 0%, #ffffff 50%);
-  background: -ms-linear-gradient(left, #f7f7f7 0%, #ffffff 50%);
-  background: linear-gradient(to right, #f7f7f7 0%, #ffffff 50%);
-  margin-bottom: 4px;
-  padding-left: 4px;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-right: 4px;
-}
 div.date {
   min-height: 114px !important;
 }
@@ -87,4 +69,36 @@ div.first_day {
   border-top: 0 !important;
   margin-top: 0 !important;
   padding-top: 0 !important;
+}
+
+.restaurant ul {
+  margin-left: 0;
+}
+
+.restaurant li {
+  list-style: none;
+  border-left: 3px solid #01B6EF;
+  background: #f7f7f7;
+  background: -webkit-gradient(linear, left center, right center, from(#f7f7f7), color-stop(50%, #ffffff), to(#ffffff));
+  background: -moz-linear-gradient(left, #f7f7f7 0%, #ffffff 50%);
+  background: -ms-linear-gradient(left, #f7f7f7 0%, #ffffff 50%);
+  background: linear-gradient(to right, #f7f7f7 0%, #ffffff 50%);
+  margin-bottom: 4px;
+  padding-left: 4px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 4px;
+}
+
+.restaurant_name {
+  padding-right: 20px;
+  font-size: 19px;
+}
+
+.restaurant_votes {
+  font-size: 17px;
+}
+
+.restaurant_votes a {
+  text-decoration: none;
 }

@@ -1,5 +1,7 @@
 # encoding: UTF-8
 class LunchesController < ApplicationController
+  before_filter :initialize_votes
+
   def handle_unverified_request
     reset_session
     if request.xhr?
@@ -13,7 +15,6 @@ class LunchesController < ApplicationController
   end
 
   def vote
-    session[:votes] ||= Set.new
     @lunch = Lunch.find(params[:id])
 
     if session[:votes].add? params[:id]
@@ -24,5 +25,11 @@ class LunchesController < ApplicationController
       format.html { redirect_to root}
       format.js
     end
+  end
+
+  private
+
+  def initialize_votes
+    session[:votes] ||= Set.new
   end
 end
