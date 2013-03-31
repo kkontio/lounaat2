@@ -19,8 +19,10 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, 'log/scrape.log'
-
 every :hour do
-  rake 'scrape_lunches'
+  rake 'scrape_lunches', :output => 'log/scrape.log'
+end
+
+every :day, :at => '01:00' do
+  rake 'init_lunches', :output => 'log/init_lunches.log'
 end

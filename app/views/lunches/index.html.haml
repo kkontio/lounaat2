@@ -1,5 +1,5 @@
-- @lunches_by_date.each do |date, lunches|
-  .day.row-fluid{:class => date == @lunches_by_date.keys.first ? 'first_day' : ''}
+- @lunches_with_descriptions.each do |date, lunches|
+  .day.row-fluid{:class => date == @lunches_with_descriptions.keys.first ? 'first_day' : ''}
     .date.span2{:id => "#{date.to_s}"}
       %p.calendar
         %span.wday
@@ -8,8 +8,17 @@
         %span.month
           = date.month_fi
     .restaurants.span10
-      - lunches.each_slice(3) do |row_of_lunches|
-        .row-fluid.restaurant_row
+      - lunches.each_slice(4) do |row_of_lunches|
+        .row-fluid
           - row_of_lunches.each do |lunch|
-            .restaurant.span4{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
+            .restaurant.span3{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
               = render(lunch)
+
+      -# Awful hack. Should dynamically create enough rows. This breaks if the amount of non.desc. lunches > 20
+      - unless @lunches_without_descriptions[date].nil?
+        .row-fluid.non-desc-lunches
+          - @lunches_without_descriptions[date].each_slice(5) do |row_of_lunches|
+            .span3
+              - row_of_lunches.each do |lunch|
+                .restaurant{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
+                  = render(lunch)

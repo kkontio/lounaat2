@@ -6,7 +6,28 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+restaurants = []
 
-["Café Buffo", "Chico's", "Fennia", "Base", "Carlito's", "Retro", "Lokki"].each do |r|
+restaurants << "Café Buffo"
+restaurants << "Chico's"
+restaurants << "Ravintola Fennia"
+restaurants << "Bar Fennia"
+restaurants << "Base"
+restaurants << "Carlito's"
+restaurants << "Retro"
+restaurants << "Lokki"
+restaurants << "Kotipizza"
+restaurants << "Robert's Coffee"
+restaurants << "Lime Leaf"
+restaurants << "Classic Pizza"
+restaurants << "Mandarin Palace"
+restaurants << "Kultainen Tai"
+restaurants << "Curry Palace"
+restaurants << "Hesburger"
+restaurants << "Rax"
+restaurants << "Subway"
+restaurants << "Picnic"
+
+restaurants.each do |r|
   Restaurant.find_or_create_by_name(r)
 end

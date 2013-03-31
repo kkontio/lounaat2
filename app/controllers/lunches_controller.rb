@@ -13,7 +13,7 @@ class LunchesController < ApplicationController
   end
 
   def index
-    @lunches_by_date = Lunch.lunches_by_date
+    @lunches_with_descriptions, @lunches_without_descriptions = Lunch.week_of_lunches
   end
 
   def vote

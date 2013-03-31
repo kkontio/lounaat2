@@ -3,19 +3,49 @@ class Lunch < ActiveRecord::Base
   validates :date, :uniqueness => { :scope => :restaurant_id }
   belongs_to :restaurant
 
-  def self.lunches_by_date
-    lunches = includes(:restaurant).where("date >= ?", Date.today).order('date')
+  # Returns lunches for today and the next 6 days
+  def self.week_of_lunches
+    lunches = includes(:restaurant).where("date >= ? AND date <= ?", Date.today, Date.today + 6.days).order('date')
 
-    h = {}
+    with_descriptions = {}
+    without_descriptions = {}
 
     lunches.each do |l|
-      h[l.date] ||= []
-      h[l.date] << l
+      with_descriptions[l.date] ||= []
+      without_descriptions[l.date] ||= []
+
+      if l.description.nil?
+        without_descriptions[l.date] << l
+      else
+        with_descriptions[l.date] << l
+      end
     end
 
-    h.values.each { |v| v.sort! { |a,b| a.restaurant.name <=> b.restaurant.name } }
+    with_descriptions.values.each { |v| v.sort! { |a,b| a.restaurant.name <=> b.restaurant.name } }
+    without_descriptions.values.each { |v| v.sort! { |a,b| a.restaurant.name <=> b.restaurant.name } }
 
-    return h
+    return with_descriptions, without_descriptions
+  end
+
+  # Initializes lunches for a week forward. Weekends excluded.
+  def self.init_lunches
+    dates = []
+
+    for i in 0..6
+      d = Date.today + i.days
+      unless d.saturday? || d.sunday?
+        dates << d
+      end
+    end
+
+    restaurants = Restaurant.all
+
+    restaurants.each do |r|
+      dates.each do |d|
+        l = Lunch.find_or_create_by_restaurant_id_and_date(:restaurant_id => r.id, :date => d)
+        l.save
+      end
+    end
   end
 
   def add_vote

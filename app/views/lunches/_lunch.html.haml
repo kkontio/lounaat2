@@ -13,5 +13,6 @@
         - if lunch.votes > 0
           = "#{lunch.votes}&nbsp;&#215;&nbsp;".html_safe
         %i.icon-thumbs-up
-%ul
-  = lunch.description.html_safe
+- unless lunch.description.nil?
+  %ul
+    = lunch.description.html_safe

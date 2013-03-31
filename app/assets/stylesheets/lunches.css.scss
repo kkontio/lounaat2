@@ -91,14 +91,22 @@ div.first_day {
 }
 
 .restaurant_name {
-  padding-right: 10px;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .restaurant_votes {
   font-size: 17px;
+  margin-left: 5px;
 }
 
 .restaurant_votes a {
   text-decoration: none;
+}
+
+.non-desc-lunches .restaurant_name {
+  font-size: 14px;
+}
+
+.non-desc-lunches .restaurant_votes {
+  font-size: 15px;
 }

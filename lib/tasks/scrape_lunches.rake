@@ -145,7 +145,7 @@ task :scrape_lunches => :environment do
         rescue
           STDERR.puts "Failed to scrape info for #{r.name}: #{$!}"
         end
-      when "Fennia"
+      when "Ravintola Fennia"
         r = Restaurant.find_by_name(restaurant)
         puts "*** Scraping: #{r.name} ***"
 
@@ -328,6 +328,50 @@ task :scrape_lunches => :environment do
         rescue
           STDERR.puts "Failed to scrape info for #{r.name}: #{$!}"
         end
+      when "Bar Fennia"
+        r = Restaurant.find_by_name(restaurant)
+        puts "*** Scraping: #{r.name} ***"
+
+        begin
+          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/bar-fennia/showlunch", :read_timeout => 10)
+          doc = Nokogiri::HTML(html.read)
+          doc.encoding = 'utf-8'
+
+          # Each date is contained in a dt element
+          doc.xpath('//dt').each do |dt_tag|
+            d = parse_date(dt_tag.content)
+
+            # Each lunch is contained in a dd element
+            dd_tags = []
+            n = dt_tag.next_element
+
+            while n && n.name == 'dd'
+              dd_tags << n
+              n = n.next_element
+            end
+
+            desc = nil
+
+            dd_tags.each do |dd_tag|
+              dd_tag.css('li').map do |li_tag|
+                unless li_tag.content.length < 3
+                  desc ||= ""
+                  s = li_tag.content
+                  s = beautify_allergies(s)
+                  desc << "<li>#{s}</li>"
+                end
+              end
+            end
+
+            unless desc.nil?
+              l = Lunch.find_or_create_by_restaurant_id_and_date(:restaurant_id => r.id, :date => d)
+              l.description = desc
+              l.save
+            end
+          end
+        rescue
+          STDERR.puts "Failed to scrape info for #{r.name}: #{$!}"
+        end
       else
         puts "*** #{restaurant} not implemented ***"
     end
@@ -346,19 +390,10 @@ task :scrape_lunches => :environment do
     return partitions.join
   end
 
-  restaurants = []
-  restaurants << "Retro"
-  restaurants << "Café Buffo"
-  restaurants << "Chico's"
-  restaurants << "Fennia"
-  restaurants << "Base"
-  restaurants << "Carlito's"
-  restaurants << "Lokki"
-
   puts "Scrape started #{Time.now.to_s}"
 
-  restaurants.each do |r|
-    parse_lunch r
+  Restaurant.all.each do |r|
+    parse_lunch r.name
   end
 end
 
