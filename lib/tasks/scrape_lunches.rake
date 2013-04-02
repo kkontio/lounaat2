@@ -358,6 +358,7 @@ task :scrape_lunches => :environment do
                   desc ||= ""
                   s = p_tag.content
                   s = beautify_allergies(s)
+                  s[0] = Unicode::capitalize(s[0])
                   desc << "<li>#{s}</li>"
                 end
               end
