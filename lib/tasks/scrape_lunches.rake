@@ -234,12 +234,12 @@ task :scrape_lunches => :environment do
         rescue
           STDERR.puts "Failed to scrape info for #{r.name}: #{$!}"
         end
-      when "Carlito's"
+      when "GLO Grill Kitchen"
         r = Restaurant.find_by_name(restaurant)
         puts "*** Scraping: #{r.name} ***"
 
         begin
-          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/carlito-s/showlunch", :read_timeout => 10)
+          html = open("http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/showlunch", :read_timeout => 10)
           doc = Nokogiri::HTML(html.read)
           doc.encoding = 'utf-8'
 
@@ -259,10 +259,10 @@ task :scrape_lunches => :environment do
             desc = nil
 
             dd_tags.each do |dd_tag|
-              dd_tag.css('p').map do |p_tag|
-                unless p_tag.content.length < 3
+              dd_tag.css('li').map do |li_tag|
+                unless li_tag.content.length < 3
                   desc ||= ""
-                  s = p_tag.content.gsub("\u00a0", ' ').strip
+                  s = li_tag.content.gsub("\u00a0", ' ').strip
                   s = beautify_allergies(s)
                   desc << "<li>#{s}</li>"
                 end
