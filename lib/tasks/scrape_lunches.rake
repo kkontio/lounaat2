@@ -259,10 +259,10 @@ task :scrape_lunches => :environment do
             desc = nil
 
             dd_tags.each do |dd_tag|
-              dd_tag.css('li').map do |li_tag|
-                unless li_tag.content.length < 3
+              dd_tag.css('p').map do |p_tag|
+                unless p_tag.content.length < 3
                   desc ||= ""
-                  s = li_tag.content.gsub("\u00a0", ' ').strip
+                  s = p_tag.content.gsub("\u00a0", ' ').strip
                   s = beautify_allergies(s)
                   desc << "<li>#{s}</li>"
                 end
