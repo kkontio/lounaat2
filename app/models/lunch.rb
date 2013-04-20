@@ -1,30 +1,31 @@
 class Lunch < ActiveRecord::Base
-  attr_accessible :date, :description, :restaurant_id, :votes
+  attr_accessible :date, :restaurant_id, :votes
   validates :date, :uniqueness => { :scope => :restaurant_id }
   belongs_to :restaurant
+  has_many :lunch_items, :dependent => :destroy
 
   # Returns lunches for today and the next 6 days
   def self.week_of_lunches
     lunches = includes(:restaurant).where("date >= ? AND date <= ?", Date.today, Date.today + 6.days).order('date')
 
-    with_descriptions = {}
-    without_descriptions = {}
+    with_lunch_items = {}
+    without_lunch_items = {}
 
     lunches.each do |l|
-      with_descriptions[l.date] ||= []
-      without_descriptions[l.date] ||= []
+      with_lunch_items[l.date] ||= []
+      without_lunch_items[l.date] ||= []
 
-      if l.description.nil?
-        without_descriptions[l.date] << l
+      if l.lunch_items.empty?
+        without_lunch_items[l.date] << l
       else
-        with_descriptions[l.date] << l
+        with_lunch_items[l.date] << l
       end
     end
 
-    with_descriptions.values.each { |v| v.sort! { |a,b| a.restaurant.name <=> b.restaurant.name } }
-    without_descriptions.values.each { |v| v.sort! { |a,b| a.restaurant.name <=> b.restaurant.name } }
+    with_lunch_items.values.each { |v| v.sort! { |a,b| a.restaurant.name <=> b.restaurant.name } }
+    without_lunch_items.values.each { |v| v.sort! { |a,b| a.restaurant.name <=> b.restaurant.name } }
 
-    return with_descriptions, without_descriptions
+    return with_lunch_items, without_lunch_items
   end
 
   # Initializes lunches for a week forward. Weekends excluded.

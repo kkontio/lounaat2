@@ -58,5 +58,11 @@ module Lounas
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Config generators to use rspec and haml
+    config.generators do |g|
+      g.test_framework :rspec, :fixture => true, :views => false, :helpers => false
+      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+    end
   end
 end

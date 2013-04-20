@@ -13,7 +13,7 @@ class LunchesController < ApplicationController
   end
 
   def index
-    @lunches_with_descriptions, @lunches_without_descriptions = Lunch.week_of_lunches
+    @lunches_with_lunch_items, @lunches_without_lunch_items = Lunch.week_of_lunches
   end
 
   def vote
@@ -24,7 +24,7 @@ class LunchesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to root}
+      format.html { redirect_to root_path }
       format.js
     end
   end

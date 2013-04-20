@@ -13,6 +13,9 @@
         - if lunch.votes > 0
           = "#{lunch.votes}&nbsp;&#215;&nbsp;".html_safe
         %i.icon-thumbs-up
-- unless lunch.description.nil?
+
+- unless lunch.lunch_items.empty?
   %ul
-    = lunch.description.html_safe
+    - lunch.lunch_items.each do |lunch_item|
+      %li
+        = lunch_item.description
