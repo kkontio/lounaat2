@@ -6,7 +6,7 @@ class Lunch < ActiveRecord::Base
 
   # Returns lunches for today and the next 6 days
   def self.week_of_lunches
-    lunches = includes(:restaurant).where("date >= ? AND date <= ?", Date.today, Date.today + 6.days).order('date')
+    lunches = includes(:restaurant, :lunch_items).where("date >= ? AND date <= ?", Date.today, Date.today + 6.days).order('date')
 
     with_lunch_items = {}
     without_lunch_items = {}
