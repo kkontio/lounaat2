@@ -362,6 +362,7 @@ task :scrape_lunches => :environment do
   def save_lunch(restaurant_id, date, lunch_items)
     unless lunch_items.empty?
       l = Lunch.find_or_create_by_restaurant_id_and_date(:restaurant_id => restaurant_id, :date => date)
+
       LunchItem.find_all_by_lunch_id(l.id).each do |li|
         li.destroy
       end
