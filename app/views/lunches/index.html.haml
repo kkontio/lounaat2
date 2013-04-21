@@ -1,6 +1,6 @@
 - @lunches_with_lunch_items.each do |date, lunches|
-  .day.row-fluid{:class => date == @lunches_with_lunch_items.keys.first ? 'first_day' : ''}
-    .date.span2{:id => "#{date.to_s}"}
+  .day.row-fluid{:class => date == @lunches_with_lunch_items.keys.first ? 'first_day' : '', :id => "#{date.to_s}"}
+    .date.span2
       %p.calendar
         %span.wday
           = date.wday_fi.upcase
