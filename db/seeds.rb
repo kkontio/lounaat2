@@ -6,28 +6,32 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-restaurants = []
+restaurants = {}
 
-restaurants << "Café Buffo"
-restaurants << "Chico's"
-restaurants << "Ravintola Fennia"
-restaurants << "Bar Fennia"
-restaurants << "Base"
-restaurants << "GLO Grill Kitchen"
-restaurants << "Retro"
-restaurants << "Lokki"
-restaurants << "Kotipizza"
-restaurants << "Robert's Coffee"
-restaurants << "Lime Leaf"
-restaurants << "Classic Pizza"
-restaurants << "Mandarin Palace"
-restaurants << "Kultainen Tai"
-restaurants << "Curry Palace"
-restaurants << "Hesburger"
-restaurants << "Rax"
-restaurants << "Subway"
-restaurants << "Picnic"
+restaurants['Café Buffo'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/caf-buffo/showlunch'
+restaurants["Chico's"] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/chico-s/showlunch'
+restaurants['Ravintola Fennia'] =
+    'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/showlunch'
+restaurants['Bar Fennia'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/bar-fennia/showlunch'
+restaurants['Base'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/showlunch'
+restaurants['GLO Grill Kitchen'] =
+    'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/showlunch'
+restaurants['Retro'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/showlunch'
+restaurants['Lokki'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ilgabbiano/showlunch'
+restaurants['Kotipizza'] = nil
+restaurants["Robert's Coffee"] = nil
+restaurants['Lime Leaf'] = nil
+restaurants['Classic Pizza'] = nil
+restaurants['Mandarin Palace'] = nil
+restaurants['Kultainen Tai'] = nil
+restaurants['Curry Palace'] = nil
+restaurants['Hesburger'] = nil
+restaurants['Rax'] = nil
+restaurants['Subway'] = nil
+restaurants['Picnic'] = nil
 
-restaurants.each do |r|
-  Restaurant.find_or_create_by_name(r)
+restaurants.each do |name, url|
+  r = Restaurant.find_or_create_by_name(name)
+  r.url = url
+  r.save
 end

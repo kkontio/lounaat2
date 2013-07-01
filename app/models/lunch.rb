@@ -2,7 +2,7 @@ class Lunch < ActiveRecord::Base
   attr_accessible :date, :restaurant_id, :votes
   validates :date, :uniqueness => { :scope => :restaurant_id }
   belongs_to :restaurant
-  has_many :lunch_items, :dependent => :destroy
+  has_many :lunch_items, :dependent => :destroy, :order => 'id ASC'
 
   # Returns lunches for today and the next 6 days
   def self.week_of_lunches

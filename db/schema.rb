@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420131226) do
+ActiveRecord::Schema.define(:version => 20130701193031) do
 
   create_table "lunch_items", :force => true do |t|
     t.text     "description"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130420131226) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "url"
   end
 
   add_index "restaurants", ["name"], :name => "index_restaurants_on_name"
