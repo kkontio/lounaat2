@@ -70,3 +70,12 @@ Then(/^I should not see lunches seven days in the future$/) do
     page.should_not have_css("##{(Date.today + 7.days).to_s}")
   end
 end
+
+When(/^I vote for "(.*?)" for today's lunch$/) do |restaurant|
+  find(".#{restaurant}").find('.restaurant_votes').find('a').click
+end
+
+Then(/^I should see vote for "(.*?)" for today$/) do |restaurant|
+  find(".#{restaurant}").find('.restaurant_votes').should have_content 1
+end
+
