@@ -6,6 +6,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Create our restaurants
 restaurants = {}
 
 restaurants['Café Buffo'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/caf-buffo/showlunch'
@@ -30,8 +32,15 @@ restaurants['Rax'] = nil
 restaurants['Subway'] = nil
 restaurants['Picnic'] = nil
 
+# Add them to the db
 restaurants.each do |name, url|
   r = Restaurant.find_or_create_by_name(name)
   r.url = url
   r.save
 end
+
+# Initialize lunch list
+Lunch.init_lunches
+
+# Do a scrape
+Rake::Task['scrape_lunches'].invoke
