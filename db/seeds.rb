@@ -43,4 +43,4 @@ end
 Lunch.init_lunches
 
 # Do a scrape
-Rake::Task['scrape_lunches'].invoke
+Rake::Task['scraper:scrape_lunches'].invoke

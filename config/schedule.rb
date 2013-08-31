@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 every :hour do
-  rake 'scrape_lunches', :output => 'log/scrape.log'
+  rake 'scraper:scrape_lunches', :output => 'log/scrape.log'
 end
 
 every :day, :at => '01:00' do
