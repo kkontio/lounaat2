@@ -103,11 +103,33 @@ namespace :scraper do
   end
 
   def beautify_allergies(lunch_item)
+    if lunch_item.empty?
+      return
+    end
+
     partitions = lunch_item.partition(/\(\s*(vl|[lg])\s*((\/|,)\s*(vl|[lg]))*\s*\)/i)
+    partitions[2] = beautify_allergies(partitions[2])
+
     unless partitions[1].empty?
-      partitions[1] = partitions[1].gsub(/[[:space:]]/, '')
+      partitions[1] = partitions[1].gsub(/[[:space:]]/, '') + ' '
       partitions[1] = Unicode::upcase(partitions[1])
     end
+
+    return partitions.join
+  end
+
+  def beautify_prices(lunch_item)
+    if lunch_item.empty?
+      return
+    end
+
+    partitions = lunch_item.partition(/\d{1,2},\d{1,2}\s*[e€]/i)
+    partitions[2] = beautify_prices(partitions[2])
+
+    unless partitions[1].empty?
+      partitions[1] = partitions[1].gsub(/[[:space:]]/, '').gsub(/e/, '€') + ' '
+    end
+
     return partitions.join
   end
 
@@ -122,6 +144,7 @@ namespace :scraper do
 
     lunch_item[0] = Unicode::capitalize(lunch_item[0])
     lunch_item = beautify_allergies(lunch_item)
+    lunch_item = beautify_prices(lunch_item)
 
     return lunch_item
   end
