@@ -31,6 +31,7 @@ restaurants['Hesburger'] = nil
 restaurants['Rax'] = nil
 restaurants['Subway'] = nil
 restaurants['Picnic'] = nil
+restaurants['Persian Ravintola'] = nil
 
 # Add them to the db
 restaurants.each do |name, url|
