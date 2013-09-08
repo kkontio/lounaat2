@@ -91,16 +91,23 @@ div.first_day {
 }
 
 .restaurant_name {
+  display: inline-block;
   font-size: 16px;
+  margin-right: 3px;
 }
 
 .restaurant_votes {
+  display: inline-block;
   font-size: 17px;
-  margin-left: 5px;
 }
 
 .restaurant_votes a {
   text-decoration: none;
+}
+
+.restaurant_votes a:hover {
+  text-decoration: none;
+  color: #DD1144;
 }
 
 .non-desc-lunches .restaurant_name {
@@ -108,7 +115,7 @@ div.first_day {
 }
 
 .non-desc-lunches .restaurant_votes {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .non-desc-lunches .restaurant_header {

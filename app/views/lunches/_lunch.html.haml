@@ -1,18 +1,12 @@
 %h4.restaurant_header
   %span.restaurant_name
     = lunch.restaurant.name
-
-  - if session[:votes].include?(lunch.id.to_s)
-    %span.restaurant_votes.text-success
-      - if lunch.votes > 0
-        = "#{lunch.votes}&nbsp;&#215;&nbsp;".html_safe
-      %i.icon-thumbs-up
-  - else
-    %span.restaurant_votes
+  %span.restaurant_votes.blue
+    - [lunch.votes, 5].min.times do
+      %i.icon-star
+    - unless session[:votes].include?(lunch.id.to_s)
       = link_to vote_lunch_path(lunch), :method => :post, :remote => true do
-        - if lunch.votes > 0
-          = "#{lunch.votes}&nbsp;&#215;&nbsp;".html_safe
-        %i.icon-thumbs-up
+        %i.icon-star-empty
 
 - unless lunch.lunch_items.empty?
   %ul
