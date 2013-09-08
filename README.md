@@ -34,14 +34,14 @@ rvmsudo passenger-install-apache2-module
 ```
 A few words about passenger/apache config.
 
-Passenger module needs to be pointed to the ruby installation. For example:
+Passenger module needs to be pointed to the ruby installation (the installer will also instruct on this). For example:
 ```sh
 #/etc/apache2/mods-available/passenger.load
-LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p194/gems/passenger-3.0.15/ext/apache2/mod_passenger.so
+LoadModule passenger_module /usr/local/rvm/gems/ruby-2.0.0-p247@lounas/gems/passenger-4.0.16/buildout/apache2/mod_passenger.so
 
 #/etc/apache2/mods-available/passenger.conf
-PassengerRoot /usr/local/rvm/gems/ruby-1.9.3-p194/gems/passenger-3.0.15
-PassengerRuby /usr/local/rvm/wrappers/ruby-1.9.3-p194/ruby
+PassengerRoot /usr/local/rvm/gems/ruby-2.0.0-p247@lounas/gems/passenger-4.0.16
+PassengerDefaultRuby /usr/local/rvm/wrappers/ruby-2.0.0-p247@lounas/ruby
 ```
 
 Apache vhost site config example.
@@ -52,7 +52,7 @@ Root/Dir paths need to be pointed to capistrano deployment directory current/pub
   DocumentRoot /railsapp/current/public
   # point to rails app public directory
   <Directory /railsapp/current/public>
-    Allow from all
+    AllowOverride all
     Options -MultiViews
   </Directory>
 </VirtualHost>
