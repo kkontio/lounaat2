@@ -15,7 +15,6 @@ gem 'jquery-rails'
 gem 'whenever', :require => false
 
 group :development, :test do
-  gem 'ruby-debug19'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
