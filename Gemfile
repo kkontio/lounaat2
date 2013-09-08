@@ -2,19 +2,20 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'pg'
 gem 'haml'
 gem 'nokogiri'
 gem 'unicode'
-gem 'thin'
 gem 'google-webfonts'
 gem 'jquery-rails'
 gem 'whenever', :require => false
 
+# Deploy with Capistrano
+gem 'capistrano'
+gem 'rvm-capistrano'
+
 group :development, :test do
+  gem 'thin'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
@@ -38,19 +39,3 @@ group :assets do
   gem 'uglifier'
   gem 'twitter-bootstrap-rails'
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-gem 'capistrano'
-gem 'rvm-capistrano'
-
-# To use debugger
-# gem 'debugger'
