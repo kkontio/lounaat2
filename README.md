@@ -2,7 +2,7 @@ Lounaat2
 ========
 http://lounaat2.fi
 
-Rails app for displaying lunch serving restaurants around Leppävaara/Sello area.
+##### Rails app for displaying lunch serving restaurants around Leppävaara/Sello area.
 
 ### Notes
 
@@ -23,6 +23,7 @@ Of course, any other configuration you wish to use is ok. This is here mainly so
 Copy your `database.yml` and `secret_token.rb` files to the appropriate capistrano shared config folder - check `deploy.rb`.
 
 Basic steps for production installation. Only going to go through what is actually relevant for getting this Rails app running and not how to secure your ssh, db or your server in general.
+
 1. Install apache, sshd and db server of your choice (I usually prefer PostgreSQL)
 2. Create db for your Rails app
 3. Install RVM (system wide/multi-user) and Ruby
@@ -31,7 +32,8 @@ Basic steps for production installation. Only going to go through what is actual
 
 And some additional info for steps 4 and 5.
 
-4.
+### 4. Install Passenger
+
 ```sh
 gem install passenger
 rvmsudo passenger-install-apache2-module
@@ -62,7 +64,8 @@ Root/Dir paths need to be pointed to capistrano deployment directory current/pub
 </VirtualHost>
 ```
 
-5.
+### 5. Add deploy user and add the user to the rvm group
+
 Remember to give your deploy user appropriate rights.
 ```sh
 sudo adduser deploy
