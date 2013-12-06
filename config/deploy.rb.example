@@ -6,7 +6,7 @@ set :whenever_command, 'bundle exec whenever'
 require 'whenever/capistrano'
 
 set :application, 'lepuskilounas'
-set :repository,  'https://code.google.com/p/lepuskilounas/'
+set :repository,  'https://github.com/kkontio/lounaat2.git'
 set :scm, :git
 set :user, 'yourdeployuser'
 set :use_sudo, false
