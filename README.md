@@ -1,3 +1,7 @@
+Lounaat2
+========
+http://lounaat2.fi
+
 Rails app for displaying lunch serving restaurants around Leppävaara/Sello area.
 
 ### Notes
@@ -16,7 +20,7 @@ Production environment setup in example deployment files is apache/passenger, sy
 
 Of course, any other configuration you wish to use is ok. This is here mainly so I remember what I used. :)
 
-Copy your database.yml and secret_token.rb files to the appropriate capistrano shared config folder - check deploy.rb.
+Copy your `database.yml` and `secret_token.rb` files to the appropriate capistrano shared config folder - check `deploy.rb`.
 
 Basic steps for production installation. Only going to go through what is actually relevant for getting this Rails app running and not how to secure your ssh, db or your server in general.
 1. Install apache, sshd and db server of your choice (I usually prefer PostgreSQL)
