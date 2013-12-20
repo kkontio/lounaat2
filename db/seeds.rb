@@ -10,33 +10,42 @@
 # Create our restaurants
 restaurants = {}
 
-restaurants['Café Buffo'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/caf-buffo/showlunch'
-restaurants["Chico's"] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/chico-s/showlunch'
+restaurants['Café Buffo'] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/caf-buffo/showlunch',
+                              :alias => 'buffo' }
+restaurants["Chico's"] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/chico-s/showlunch',
+                           :alias => 'chicos' }
 restaurants['Ravintola Fennia'] =
-    'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/showlunch'
-restaurants['Bar Fennia'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/bar-fennia/showlunch'
-restaurants['Base'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/showlunch'
+    { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/showlunch',
+      :alias => 'ravintola_fennia' }
+restaurants['Bar Fennia'] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/bar-fennia/showlunch',
+                              :alias => 'bar_fennia' }
+restaurants['Base'] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/showlunch',
+                        :alias => 'base' }
 restaurants['GLO Grill Kitchen'] =
-    'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/showlunch'
-restaurants['Retro'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/showlunch'
-restaurants['Lokki'] = 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ilgabbiano/showlunch'
-restaurants['Kotipizza'] = nil
-restaurants["Robert's Coffee"] = nil
-restaurants['Lime Leaf'] = nil
-restaurants['Classic Pizza'] = nil
-restaurants['Mandarin Palace'] = nil
-restaurants['Kultainen Tai'] = nil
-restaurants['Curry Palace'] = nil
-restaurants['Hesburger'] = nil
-restaurants['Rax'] = nil
-restaurants['Subway'] = nil
-restaurants['Picnic'] = nil
-restaurants['Persian Ravintola'] = nil
+    { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/showlunch',
+      :alias => 'glo' }
+restaurants['Retro'] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/showlunch',
+                         :alias => 'retro' }
+restaurants['Lokki'] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ilgabbiano/showlunch',
+                         :alias => 'lokki' }
+restaurants['Kotipizza'] = { :alias => 'kotipizza'}
+restaurants["Robert's Coffee"] = { :alias => 'roberts'}
+restaurants['Lime Leaf'] = { :alias => 'lime'}
+restaurants['Classic Pizza'] = { :alias => 'classic'}
+restaurants['Mandarin Palace'] = { :alias => 'mandarin_palace'}
+restaurants['Kultainen Tai'] = { :alias => 'kultainen_tai'}
+restaurants['Curry Palace'] = { :alias => 'curry_palace'}
+restaurants['Hesburger'] = { :alias => 'hesburger'}
+restaurants['Rax'] = { :alias => 'rax'}
+restaurants['Subway'] = { :alias => 'subway'}
+restaurants['Picnic'] = { :alias => 'picnic'}
+restaurants['Persian Ravintola'] = { :alias => 'persian_ravintola'}
 
 # Add them to the db
-restaurants.each do |name, url|
+restaurants.each do |name, details|
   r = Restaurant.find_or_create_by_name(name)
-  r.url = url
+  r.url = details[:url]
+  r.alias = details[:alias]
   r.save
 end
 

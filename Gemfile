@@ -22,7 +22,6 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'simplecov'
   gem 'factory_girl_rails'
   gem 'hirb'
 end

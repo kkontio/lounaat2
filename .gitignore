@@ -31,3 +31,6 @@
 
 # Ignore .rvmrc
 /.rvmrc
+
+# Ignore simplecov
+/coverage

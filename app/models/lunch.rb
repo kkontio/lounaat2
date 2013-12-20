@@ -43,8 +43,7 @@ class Lunch < ActiveRecord::Base
 
     restaurants.each do |r|
       dates.each do |d|
-        l = Lunch.find_or_create_by_restaurant_id_and_date(:restaurant_id => r.id, :date => d)
-        l.save
+        Lunch.find_or_create_by_restaurant_id_and_date(:restaurant_id => r.id, :date => d)
       end
     end
   end
