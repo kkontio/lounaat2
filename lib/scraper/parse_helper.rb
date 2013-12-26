@@ -18,9 +18,9 @@ class ParseHelper
   end
 
   def self.cleanse(s)
+    s = strip_junk(s)
     s = beautify_allergies(s)
-    s = beautify_prices(s)
-    strip_junk(s)
+    beautify_prices(s)
   end
 
   private

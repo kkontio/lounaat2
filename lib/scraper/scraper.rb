@@ -6,10 +6,11 @@ require 'unicode'
 
 class Scraper
 
-  attr_accessor :url, :doc, :parsed_results
+  attr_accessor :url, :doc, :parsed_results, :url_date
 
-  def initialize(url)
+  def initialize(url, url_date)
     @url = url
+    @url_date = url_date
   end
 
   def fetch
@@ -20,7 +21,7 @@ class Scraper
 
   def parse(scrape_proc)
     begin
-      @parsed_results = scrape_proc.call(@doc)
+      @parsed_results = scrape_proc.call(@doc, @url_date)
     rescue
       raise "Failed to scrape info from #{@url.to_s}: #{$!}"
     end

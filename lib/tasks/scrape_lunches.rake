@@ -1,9 +1,10 @@
 # encoding: UTF-8
 require 'scraper/scraper'
 require 'scraper/parse_helper'
-require 'scraper/restaurant_modules/retro_scraper'
+require 'scraper/restaurant_modules/sello_scraper'
+
 namespace :scraper do
-  include RetroScraper
+  include SelloScraper
 
   desc 'Fetch lunch info from the interwebs'
   task :scrape_lunches => :environment do
@@ -18,12 +19,23 @@ namespace :scraper do
     puts "*** Scraping: #{r.name} ***"
 
     begin
-      scraper = Scraper.new(r.url)
-      scraper.fetch
-      scraper.parse send("scrape_#{r.alias}")
+      today = Date.today
+      for i in 0..1
+        if i == 0
+          puts "This week."
+        else
+          puts "Next week."
+        end
 
-      scraper.parsed_results.each do |date, lunch_items|
-        save_lunch(r.id, date, lunch_items)
+        url_date = today + i * 7
+        url = r.url.gsub('<cweek>', format('%02d', url_date.cweek))
+        scraper = Scraper.new(url, url_date)
+        scraper.fetch
+        scraper.parse send('scrape_sello')
+
+        scraper.parsed_results.each do |date, lunch_items|
+          save_lunch(r.id, date, lunch_items)
+        end
       end
     rescue
       STDERR.puts "Failed to scrape info for #{r.name}: #{$!}"

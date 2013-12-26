@@ -10,23 +10,23 @@
 # Create our restaurants
 restaurants = {}
 
-restaurants['Café Buffo'] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/caf-buffo/showlunch',
+restaurants['Café Buffo'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/cafe-buffo/lounaslista-viikko-<cweek>',
                               :alias => 'buffo' }
-restaurants["Chico's"] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/chico-s/showlunch',
+restaurants["Chico's"] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/chicos/lounaslista-viikko-<cweek>',
                            :alias => 'chicos' }
 restaurants['Ravintola Fennia'] =
-    { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/showlunch',
+    { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/lounaslista-viikko-<cweek>',
       :alias => 'ravintola_fennia' }
-restaurants['Bar Fennia'] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/bar-fennia/showlunch',
+restaurants['Bar Fennia'] = { :url => nil,
                               :alias => 'bar_fennia' }
-restaurants['Base'] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/showlunch',
+restaurants['Base'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/lounaslista-viikko-<cweek>',
                         :alias => 'base' }
 restaurants['GLO Grill Kitchen'] =
-    { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/showlunch',
+    { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/lounaslista-viikko-<cweek>',
       :alias => 'glo' }
-restaurants['Retro'] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/showlunch',
+restaurants['Retro'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/lounaslista-viikko-<cweek>-0',
                          :alias => 'retro' }
-restaurants['Lokki'] = { :url => 'http://sello.fi/fi/liikkeet/ravintolat-ja-kahvilat/ilgabbiano/showlunch',
+restaurants['Lokki'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/il-gabbiano/lounaslista-viikko-<cweek>',
                          :alias => 'lokki' }
 restaurants['Kotipizza'] = { :alias => 'kotipizza'}
 restaurants["Robert's Coffee"] = { :alias => 'roberts'}
