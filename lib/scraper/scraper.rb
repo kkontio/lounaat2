@@ -19,11 +19,11 @@ class Scraper
     @doc.encoding = 'utf-8'
   end
 
-  def parse(scrape_proc)
+  def parse(parse_proc)
     begin
-      @parsed_results = scrape_proc.call(@doc, @url_date)
+      @parsed_results = parse_proc.call(@doc, @url_date)
     rescue
-      raise "Failed to scrape info from #{@url.to_s}: #{$!}"
+      raise "Failed to parse info from #{@url.to_s}: #{$!}"
     end
   end
 end

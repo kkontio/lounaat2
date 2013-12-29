@@ -1,7 +1,12 @@
-module SelloScraper
-  def scrape_sello
+module SelloParser
+  def parse_sello
     lambda do |doc, url_date|
-      monday = url_date - url_date.wday + 1
+      monday = Date.parse('monday')
+
+      if monday > url_date
+        monday -= 7
+      end
+
       parsed_results = {}
 
       doc.css('.lunch_list').each_with_index do |lunch_info, i|

@@ -1,10 +1,10 @@
 # encoding: UTF-8
 require 'scraper/scraper'
 require 'scraper/parse_helper'
-require 'scraper/restaurant_modules/sello_scraper'
+require 'scraper/restaurant_modules/sello_parser'
 
 namespace :scraper do
-  include SelloScraper
+  include SelloParser
 
   desc 'Fetch lunch info from the interwebs'
   task :scrape_lunches => :environment do
@@ -31,7 +31,7 @@ namespace :scraper do
         url = r.url.gsub('<cweek>', format('%02d', url_date.cweek))
         scraper = Scraper.new(url, url_date)
         scraper.fetch
-        scraper.parse send('scrape_sello')
+        scraper.parse parse_sello
 
         scraper.parsed_results.each do |date, lunch_items|
           save_lunch(r.id, date, lunch_items)
