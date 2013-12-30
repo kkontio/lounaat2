@@ -17,7 +17,7 @@ restaurants["Chico's"] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-k
 restaurants['Ravintola Fennia'] =
     { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/lounaslista-viikko-<cweek>',
       :alias => 'ravintola_fennia' }
-restaurants['Bar Fennia'] = { :url => nil,
+restaurants['Bar Fennia'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/bar-fennia/lounaslista-viikko-<cweek>',
                               :alias => 'bar_fennia' }
 restaurants['Base'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/lounaslista-viikko-<cweek>',
                         :alias => 'base' }
