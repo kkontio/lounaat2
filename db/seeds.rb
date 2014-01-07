@@ -24,7 +24,7 @@ restaurants['Base'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahv
 restaurants['GLO Grill Kitchen'] =
     { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/lounaslista-viikko-<cweek>',
       :alias => 'glo' }
-restaurants['Retro'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/lounaslista-viikko-<cweek>-0',
+restaurants['Retro'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/lounaslista-viikko-<cweek>',
                          :alias => 'retro' }
 restaurants['Lokki'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/il-gabbiano/lounaslista-viikko-<cweek>',
                          :alias => 'lokki' }
