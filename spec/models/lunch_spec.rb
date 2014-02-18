@@ -1,15 +1,6 @@
 require 'spec_helper'
 
 describe Lunch do
-  describe 'associatons' do
-    it {should belong_to(:restaurant)}
-    it {should have_many(:lunch_items)}
-  end
-
-  describe 'validations' do
-    it {should validate_uniqueness_of(:date).scoped_to(:restaurant_id)}
-  end
-
   describe 'listing lunches' do
     it 'should list lunches for a week forward, starting today' do
       r = FactoryGirl.create(:restaurant)
