@@ -11,41 +11,41 @@
 restaurants = {}
 
 restaurants['Café Buffo'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/cafe-buffo/lounaslista-viikko-<cweek>',
-                              :alias => 'buffo' }
+                              :scraper => 'sello' }
 restaurants["Chico's"] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/chicos/lounaslista-viikko-<cweek>',
-                           :alias => 'chicos' }
+                           :scraper => 'sello' }
 restaurants['Ravintola Fennia'] =
     { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/lounaslista-viikko-<cweek>',
-      :alias => 'ravintola_fennia' }
+      :scraper => 'sello' }
 restaurants['Bar Fennia'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/bar-fennia/lounaslista-viikko-<cweek>',
-                              :alias => 'bar_fennia' }
+                              :scraper => 'sello' }
 restaurants['Base'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/lounaslista-viikko-<cweek>',
-                        :alias => 'base' }
+                        :scraper => 'sello' }
 restaurants['GLO Grill Kitchen'] =
     { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/lounaslista-viikko-<cweek>',
-      :alias => 'glo' }
+      :scraper => 'sello' }
 restaurants['Retro'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/lounaslista-viikko-<cweek>',
-                         :alias => 'retro' }
+                         :scraper => 'sello' }
 restaurants['Lokki'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/il-gabbiano/lounaslista-viikko-<cweek>',
-                         :alias => 'lokki' }
-restaurants['Kotipizza'] = { :alias => 'kotipizza'}
-restaurants["Robert's Coffee"] = { :alias => 'roberts'}
-restaurants['Lime Leaf'] = { :alias => 'lime'}
-restaurants['Classic Pizza'] = { :alias => 'classic'}
-restaurants['Mandarin Palace'] = { :alias => 'mandarin_palace'}
-restaurants['Kultainen Tai'] = { :alias => 'kultainen_tai'}
-restaurants['Curry Palace'] = { :alias => 'curry_palace'}
-restaurants['Hesburger'] = { :alias => 'hesburger'}
-restaurants['Rax'] = { :alias => 'rax'}
-restaurants['Subway'] = { :alias => 'subway'}
-restaurants['Picnic'] = { :alias => 'picnic'}
-restaurants['Persian Ravintola'] = { :alias => 'persian_ravintola'}
+                         :scraper => 'sello' }
+restaurants['Kotipizza'] = { :scraper => 'sello'}
+restaurants["Robert's Coffee"] = { :scraper => 'sello'}
+restaurants['Lime Leaf'] = { :scraper => 'sello'}
+restaurants['Classic Pizza'] = { :scraper => 'sello'}
+restaurants['Mandarin Palace'] = { :scraper => 'sello'}
+restaurants['Kultainen Tai'] = { :scraper => 'sello'}
+restaurants['Curry Palace'] = { :scraper => 'sello'}
+restaurants['Hesburger'] = { :scraper => 'sello'}
+restaurants['Rax'] = { :scraper => 'sello'}
+restaurants['Subway'] = { :scraper => 'sello'}
+restaurants['Picnic'] = { :scraper => 'sello'}
+restaurants['Persian Ravintola'] = { :scraper => 'sello'}
 
 # Add them to the db
 restaurants.each do |name, details|
   r = Restaurant.find_or_create_by_name(name)
   r.url = details[:url]
-  r.alias = details[:alias]
+  r.scraper = details[:scraper]
   r.save
 end
 
