@@ -5,7 +5,8 @@
     = stylesheet_link_tag 'application', :media => 'all'
     = javascript_include_tag 'application'
     = google_webfonts_link_tag :mr_dafoe
-    = google_webfonts_link_tag :roboto_condensed => [300, 400]
+    = google_webfonts_link_tag :roboto => [300]
+    = google_webfonts_link_tag :roboto_slab => [300, 400]
     = csrf_meta_tags
     %meta{:name => 'description', :content => 'Lounasravintolat Espoon Leppävaaran kauppakeskus Sellon läheisyydessä.'}
     %meta{:name => 'keywords', :content => 'lounas,lounaspaikka,lounasravintola,Sello,Espoo,Leppävaara'}
@@ -13,19 +14,22 @@
     = favicon_link_tag
 
   %body
-    %header.hero-unit.container-fluid
+    %header.jumbotron.container-fluid
       %h1
         %span.blue> Lounaat
         %span.red> ²
-      %p
+      %h4
         Ante prandium
 
     - if flash[:error]
       #flash-error.flash.container-fluid
-        %p.alert.alert-error= flash[:error]
+        %p.alert.alert-danger= flash[:error]
 
     #main.container-fluid
       = yield
 
     %footer.container-fluid
-      = link_to '@GitHub', 'https://github.com/kkontio/lounaat2'
+
+      = link_to 'https://github.com/kkontio/lounaat2' do
+        @GitHub
+        %i.fa.fa-github

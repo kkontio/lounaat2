@@ -76,6 +76,6 @@ When(/^I vote for "(.*?)" for today's lunch$/) do |restaurant|
 end
 
 Then(/^I should see vote for "(.*?)" for today$/) do |restaurant|
-  find(".#{restaurant}").find('.restaurant_votes').should have_css('.icon-star')
+  find(".#{restaurant}").find('.restaurant_votes').should have_css('.fa-star')
 end
 

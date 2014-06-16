@@ -4,6 +4,7 @@
 
 div.date {
   min-height: 125px !important;
+  width: 82px;
 }
 
 p.calendar {
@@ -56,7 +57,7 @@ p.calendar span.wday {
 
 div.day {
   border-top: 1px solid #E5E5E5;
-  margin-top: 10px;
+  margin-top: 20px;
   padding-top: 15px;
 }
 
@@ -66,8 +67,14 @@ div.first_day {
   padding-top: 0 !important;
 }
 
+.restaurant {
+  max-width: 600px;
+  padding-bottom: 15px;
+}
+
 .restaurant ul {
   margin-left: 0;
+  padding-left: 0;
 }
 
 .restaurant li {
@@ -84,19 +91,21 @@ div.first_day {
   padding-bottom: 1px;
   padding-right: 4px;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 20px;
+  font-family: "Roboto",sans-serif;
 }
 
 .restaurant_name {
   display: inline-block;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 28px;
   margin-right: 3px;
   color: #555;
 }
 
 .restaurant_votes {
   display: inline-block;
+  font-size: 23px;
 }
 
 .restaurant_votes > * {
@@ -112,16 +121,20 @@ div.first_day {
   color: #DD1144;
 }
 
-.non-desc-lunches .restaurant_name {
+.non-desc-lunch {
+  padding: 1px;
+}
+
+.non-desc-lunch .restaurant_name {
   font-size: 15px;
   font-weight: 400;
 }
 
-.non-desc-lunches .restaurant_votes {
+.non-desc-lunch .restaurant_votes {
   font-size: 14px;
 }
 
-.non-desc-lunches .restaurant_header {
+.non-desc-lunch .restaurant_header {
   margin-top: 1px;
   margin-bottom: 1px;
 }

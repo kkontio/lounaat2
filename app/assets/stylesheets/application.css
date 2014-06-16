@@ -12,10 +12,8 @@
  *= require_tree .
  */
 
-header.hero-unit {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+header.jumbotron {
+    text-align: center;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -23,19 +21,17 @@ header.hero-unit {
     background-color: #ebebeb;
 }
 
-header.hero-unit h1 {
-    margin-left: 4%;
-    padding-left: 15px;
+header.jumbotron h1 {
     font-family: "Mr Dafoe",sans-serif;
     font-weight: normal;
+    font-size: 125px;
 }
 
-header.hero-unit p {
-    margin-left: 4%;
-    padding-left: 15px;
-    font-family: "Roboto Condensed",sans-serif;
+header.jumbotron h4 {
+    font-family: "Roboto Slab",sans-serif;
     font-weight: 300;
     font-style: italic;
+    font-size: 25px;
 }
 
 #flash-error {
@@ -52,12 +48,13 @@ header.hero-unit p {
 
 footer {
     background-color: #eeeeee;
-    padding: 30px;
+    padding: 50px !important;
     margin-top: 30px;
     border-top: 1px solid #E5E5E5;
-    font-family: "Roboto Condensed",sans-serif;
+    font-family: "Roboto Slab",sans-serif;
+    font-size: 20px;
 }
 
 #main {
-    font-family: "Roboto Condensed",sans-serif;
+    font-family: "Roboto Slab",sans-serif;
 }

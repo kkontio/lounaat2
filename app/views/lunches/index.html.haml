@@ -1,24 +1,27 @@
 - @lunches_with_lunch_items.each do |date, lunches|
-  .day.row-fluid{:class => date == @lunches_with_lunch_items.keys.first ? 'first_day' : '', :id => "#{date.to_s}"}
-    .date.span2
-      %p.calendar
-        %span.wday
-          = date.wday_fi.upcase
-        = date.mday
-        %span.month
-          = date.month_fi
-    .restaurants.span10
-      - lunches.each_slice(4) do |row_of_lunches|
-        .row-fluid
-          - row_of_lunches.each do |lunch|
-            .restaurant.span3{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
+  .day.row{:class => date == @lunches_with_lunch_items.keys.first ? 'first_day' : '', :id => "#{date.to_s}"}
+    - lunches.each_with_index do |lunch, i|
+      .row
+        - if i == 0
+          .col-md-2.col-md-offset-1
+            .date.center-block
+              %p.calendar
+                %span.wday
+                  = date.wday_fi.upcase
+                = date.mday
+                %span.month
+                  = date.month_fi
+          .col-md-6
+            .restaurant.center-block{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
+              = render(lunch)
+        - else
+          .col-md-6.col-md-offset-3
+            .restaurant.center-block{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
               = render(lunch)
 
-      -# Awful hack. Should dynamically create enough rows. This breaks if the amount of non.desc. lunches > 20
-      - unless @lunches_without_lunch_items[date].nil?
-        .row-fluid.non-desc-lunches
-          - @lunches_without_lunch_items[date].each_slice(5) do |row_of_lunches|
-            .span3
-              - row_of_lunches.each do |lunch|
-                .restaurant{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
-                  = render(lunch)
+    - unless @lunches_without_lunch_items[date].nil?
+      - @lunches_without_lunch_items[date].each do |lunch|
+        .row
+          .col-md-8.col-md-offset-2
+            .restaurant.non-desc-lunch.center-block{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
+              = render(lunch)
