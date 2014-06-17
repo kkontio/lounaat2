@@ -14,12 +14,21 @@
     = favicon_link_tag
 
   %body
-    %header.jumbotron.container-fluid
-      %h1
+    - #bloody ugly hack. should just start using bootstrap properly
+    %header.jumbotron.container-fluid.hidden-xs
+      %h1.smaller
         %span.blue> Lounaat
         %span.red> ²
       %h4
         Ante prandium
+
+    %header.jumbotron.smaller.container-fluid.hidden-sm.hidden-md.hidden-lg
+      %h1.smaller
+        %span.blue> Lounaat
+        %span.red> ²
+      %h4
+        Ante prandium
+
 
     - if flash[:error]
       #flash-error.flash.container-fluid

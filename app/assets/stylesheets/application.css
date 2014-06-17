@@ -28,6 +28,12 @@ header.jumbotron h1 {
     font-size: 125px;
 }
 
+header.jumbotron.smaller h1 {
+    font-family: "Mr Dafoe",sans-serif;
+    font-weight: normal;
+    font-size: 65px;
+}
+
 header.jumbotron h4 {
     font-family: "Roboto Slab",sans-serif;
     font-weight: 300;
