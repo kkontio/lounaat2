@@ -12,6 +12,7 @@
  *= require_tree .
  */
 
+/* Header stuff */
 header.jumbotron {
     text-align: center;
     -webkit-border-radius: 0;
@@ -34,6 +35,7 @@ header.jumbotron h4 {
     font-size: 25px;
 }
 
+/* Generic content stuff */
 #flash-error {
     text-align: center;
 }
@@ -46,6 +48,11 @@ header.jumbotron h4 {
     color: #F03335;
 }
 
+#main {
+    font-family: "Roboto Slab",sans-serif;
+}
+
+/* Footer stuff */
 footer {
     background-color: #eeeeee;
     padding: 50px !important;
@@ -53,8 +60,4 @@ footer {
     border-top: 1px solid #E5E5E5;
     font-family: "Roboto Slab",sans-serif;
     font-size: 20px;
-}
-
-#main {
-    font-family: "Roboto Slab",sans-serif;
 }

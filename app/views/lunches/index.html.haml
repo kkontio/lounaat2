@@ -1,27 +1,28 @@
 - @lunches_with_lunch_items.each do |date, lunches|
   .day.row{:class => date == @lunches_with_lunch_items.keys.first ? 'first_day' : '', :id => "#{date.to_s}"}
+    .row
+      .col-md-6.col-md-offset-3.hidden-md.hidden-lg
+        .textdate.center-block{:class => date == @lunches_with_lunch_items.keys.first ? 'first_day' : ''}
+          %span
+            = date.wday_fi.capitalize + ' ' + date.mday.to_s + '. ' + date.month_fi + 'ta'
+
     - lunches.each_with_index do |lunch, i|
       .row
-        - if i == 0
-          .col-md-2.col-md-offset-1
-            .date.center-block
-              %p.calendar
-                %span.wday
-                  = date.wday_fi.upcase
-                = date.mday
-                %span.month
-                  = date.month_fi
-          .col-md-6
-            .restaurant.center-block{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
-              = render(lunch)
-        - else
-          .col-md-6.col-md-offset-3
-            .restaurant.center-block{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
-              = render(lunch)
+        .col-md-6.col-md-offset-3
+          .restaurant.center-block{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
+            = render(lunch)
+            - if i == 0
+              .date.hidden-xs.hidden-sm
+                %p.calendar
+                  %span.wday
+                    = date.wday_fi.upcase
+                  = date.mday
+                  %span.month
+                    = date.month_fi
 
     - unless @lunches_without_lunch_items[date].nil?
       - @lunches_without_lunch_items[date].each do |lunch|
         .row
-          .col-md-8.col-md-offset-2
+          .col-md-6.col-md-offset-3
             .restaurant.non-desc-lunch.center-block{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
               = render(lunch)

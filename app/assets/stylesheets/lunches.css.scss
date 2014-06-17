@@ -2,13 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* Calendar */
+
+// calendar wrapper
 div.date {
-  min-height: 125px !important;
-  width: 82px;
+  margin-top: 0;
+  position: absolute;
+  top: 0;
+  left: -125px;
 }
 
+// main cal stuff in the p element
 p.calendar {
-  margin: 0.25em 10px 10px 0;
+  margin: 0;
   padding-top: 5px;
   float: left;
   width: 80px;
@@ -55,10 +61,25 @@ p.calendar span.wday {
   text-shadow: #fff 0 1px 0;
 }
 
+
+/* Textual date representation */
+.textdate {
+  max-width: 600px;
+  font-size: 30px;
+  margin-bottom: 30px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.textdate span {
+  border-bottom: 2px dotted #555;
+}
+
+/* Row for single day of lunches */
 div.day {
   border-top: 1px solid #E5E5E5;
-  margin-top: 20px;
-  padding-top: 15px;
+  margin-top: 30px;
+  padding-top: 25px;
 }
 
 div.first_day {
@@ -67,11 +88,14 @@ div.first_day {
   padding-top: 0 !important;
 }
 
+/* Restaurant stuff */
 .restaurant {
   max-width: 600px;
   padding-bottom: 15px;
+  position: relative;
 }
 
+// lunch items in an ul
 .restaurant ul {
   margin-left: 0;
   padding-left: 0;
@@ -100,7 +124,6 @@ div.first_day {
   font-weight: 400;
   font-size: 28px;
   margin-right: 3px;
-  color: #555;
 }
 
 .restaurant_votes {
@@ -121,17 +144,18 @@ div.first_day {
   color: #DD1144;
 }
 
+// stuff for restaurants without lunch lists
 .non-desc-lunch {
-  padding: 1px;
+  padding: 3px 0 3px 0;
 }
 
 .non-desc-lunch .restaurant_name {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 400;
 }
 
 .non-desc-lunch .restaurant_votes {
-  font-size: 14px;
+  font-size: 19px;
 }
 
 .non-desc-lunch .restaurant_header {
