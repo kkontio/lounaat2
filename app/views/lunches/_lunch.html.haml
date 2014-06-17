@@ -4,7 +4,7 @@
   %span.restaurant_votes.blue
     - [lunch.votes, 5].min.times do
       %i.fa.fa-star
-    - unless session[:votes].include?(lunch.id.to_s)
+    - unless session[:votes].include?(lunch.id.to_s) || lunch.votes > 4
       = link_to vote_lunch_path(lunch), :method => :post, :remote => true do
         %i.fa.fa-star-o
 

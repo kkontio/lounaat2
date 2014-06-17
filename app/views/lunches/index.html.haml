@@ -9,8 +9,9 @@
     - lunches.each_with_index do |lunch, i|
       .row
         .col-md-6.col-md-offset-3
-          .restaurant.center-block{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
-            = render(lunch)
+          .restaurant.center-block
+            .restaurant-wrapper{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
+              = render(lunch)
             - if i == 0
               .date.hidden-xs.hidden-sm
                 %p.calendar
@@ -24,5 +25,6 @@
       - @lunches_without_lunch_items[date].each do |lunch|
         .row
           .col-md-6.col-md-offset-3
-            .restaurant.non-desc-lunch.center-block{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
-              = render(lunch)
+            .restaurant.non-desc-lunch.center-block
+              .restaurant-wrapper{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
+                = render(lunch)
