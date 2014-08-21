@@ -13,18 +13,14 @@
             .restaurant-wrapper{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
               = render(lunch)
             - if i == 0
-              .date.hidden-xs.hidden-sm
-                %p.calendar
-                  %span.wday
-                    = date.wday_fi.upcase
-                  = date.mday
-                  %span.month
-                    = date.month_fi
+              = render 'calendar', :date => date
 
     - unless @lunches_without_lunch_items[date].nil?
-      - @lunches_without_lunch_items[date].each do |lunch|
+      - @lunches_without_lunch_items[date].each_with_index do |lunch, i|
         .row
           .col-md-6.col-md-offset-3
             .restaurant.non-desc-lunch.center-block
               .restaurant-wrapper{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
                 = render(lunch)
+              - if i == 0 && lunches.empty?
+                = render 'calendar', :date => date
