@@ -17,8 +17,6 @@ restaurants["Chico's"] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-k
 restaurants['Ravintola Fennia'] =
     { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/lounaslista-viikko-<cweek>',
       :parser => 'sello' }
-restaurants['Bar Fennia'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/bar-fennia/lounaslista-viikko-<cweek>',
-                              :parser => 'sello' }
 restaurants['Base'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/lounaslista-viikko-<cweek>',
                         :parser => 'sello' }
 restaurants['GLO Grill Kitchen'] =
@@ -40,6 +38,7 @@ restaurants['Rax'] = { :parser => 'sello'}
 restaurants['Subway'] = { :parser => 'sello'}
 restaurants['Picnic'] = { :parser => 'sello'}
 restaurants['Persian Ravintola'] = { :parser => 'sello'}
+restaurants['Peroba Cafe'] = {:parser => 'sello'}
 
 # Add them to the db
 restaurants.each do |name, details|
