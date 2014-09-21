@@ -1,4 +1,4 @@
-Lounaat2
+Lounaat²
 ========
 http://lounaat2.fi
 
@@ -13,18 +13,23 @@ These include:
 `/config/initializers/secret_tokeb.rb.example`
 `/config/deploy.rb.example`
 
+### Adding scraper plugins
 
-### Prod.env.notes.
+Scrapers use very simple plugin architecture. Create a ruby class in `/lib/scraper/plugins/` that registers itself at wRestaurantProcessor (`/lib/scraper/restaurant_processor`) with a regexp for the url pattern it handles and a lambda that takes an url and returns a hash. The hash keys should be dates and values should be arrays of strings that describe the lunches on that day. Check existing plugins for reference.
+
+### Prod.env.notes
 
 Production environment setup in example deployment files is apache/passenger, systemwide rvm, using bundler to install all needed gems to shared/bundle and capistrano for deployment.
 
-Of course, any other configuration you wish to use is ok. This is here mainly so I remember what I used. :)
+Any other server configuration you might wish to use goes as well. These notes serve to support my memory.
+
+## Setting up
 
 Copy your `database.yml` and `secret_token.rb` files to the appropriate capistrano shared config folder - check `deploy.rb`.
 
-Basic steps for production installation. Only going to go through what is actually relevant for getting this Rails app running and not how to secure your ssh, db or your server in general.
+Basic steps for production installation. Only going to go through here what is actually relevant for getting this Rails app running and not how to secure your ssh, db or your server in general.
 
-1. Install apache, sshd and db server of your choice (I usually prefer PostgreSQL)
+1. Install apache, sshd and RDBMS of your choice (I usually prefer PostgreSQL)
 2. Create db for your Rails app
 3. Install RVM (system wide/multi-user) and Ruby
 4. Install Passenger
@@ -32,7 +37,7 @@ Basic steps for production installation. Only going to go through what is actual
 
 And some additional info for steps 4 and 5.
 
-### 4. Install Passenger
+## Install Passengerer (step 4)
 
 ```sh
 gem install passenger
@@ -64,7 +69,7 @@ Root/Dir paths need to be pointed to capistrano deployment directory current/pub
 </VirtualHost>
 ```
 
-### 5. Add deploy user and add the user to the rvm group
+## Add deploy user and add the user to the rvm group (step 5)
 
 Remember to give your deploy user appropriate rights.
 ```sh
