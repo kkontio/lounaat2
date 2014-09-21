@@ -37,7 +37,7 @@ Basic steps for production installation. Only going to go through here what is a
 
 And some additional info for steps 4 and 5.
 
-## Install Passenger (step 4)
+### Install Passenger (step 4)
 
 ```sh
 gem install passenger
@@ -69,7 +69,7 @@ Root/Dir paths need to be pointed to capistrano deployment directory current/pub
 </VirtualHost>
 ```
 
-## Add deploy user and add the user to the rvm group (step 5)
+### Add deploy user and add the user to the rvm group (step 5)
 
 Remember to give your deploy user appropriate rights.
 ```sh
