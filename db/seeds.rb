@@ -10,41 +10,31 @@
 # Create our restaurants
 restaurants = {}
 
-restaurants['Café Buffo'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/cafe-buffo/lounaslista-viikko-<cweek>',
-                              :parser => 'sello' }
-restaurants["Chico's"] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/chicos/lounaslista-viikko-<cweek>',
-                           :parser => 'sello' }
-restaurants['Ravintola Fennia'] =
-    { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/lounaslista-viikko-<cweek>',
-      :parser => 'sello' }
-restaurants['Base'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/lounaslista-viikko-<cweek>',
-                        :parser => 'sello' }
-restaurants['GLO Grill Kitchen'] =
-    { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/lounaslista-viikko-<cweek>',
-      :parser => 'sello' }
-restaurants['Retro'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/lounaslista-viikko-<cweek>',
-                         :parser => 'sello' }
-restaurants['Lokki'] = { :url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/il-gabbiano/lounaslista-viikko-<cweek>',
-                         :parser => 'sello' }
-restaurants['Kotipizza'] = { :parser => 'sello'}
-restaurants["Robert's Coffee"] = { :parser => 'sello'}
-restaurants['Lime Leaf'] = { :parser => 'sello'}
-restaurants['Classic Pizza'] = { :parser => 'sello'}
-restaurants['Mandarin Palace'] = { :parser => 'sello'}
-restaurants['Kultainen Tai'] = { :parser => 'sello'}
-restaurants['Curry Palace'] = { :parser => 'sello'}
-restaurants['Hesburger'] = { :parser => 'sello'}
-restaurants['Rax'] = { :parser => 'sello'}
-restaurants['Subway'] = { :parser => 'sello'}
-restaurants['Picnic'] = { :parser => 'sello'}
-restaurants['Persian Ravintola'] = { :parser => 'sello'}
-restaurants['Peroba Cafe'] = {:parser => 'sello'}
+restaurants['Café Buffo'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/cafe-buffo/lounaslista-viikko-<cweek>'}
+restaurants["Chico's"] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/chicos/lounaslista-viikko-<cweek>'}
+restaurants['Ravintola Fennia'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/lounaslista-viikko-<cweek>'}
+restaurants['Base'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/lounaslista-viikko-<cweek>'}
+restaurants['GLO Grill Kitchen'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/lounaslista-viikko-<cweek>'}
+restaurants['Retro'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/lounaslista-viikko-<cweek>'}
+restaurants['Lokki'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/il-gabbiano/lounaslista-viikko-<cweek>'}
+restaurants['Kotipizza'] = {}
+restaurants["Robert's Coffee"] = {}
+restaurants['Lime Leaf'] = {}
+restaurants['Classic Pizza'] = {}
+restaurants['Mandarin Palace'] = {}
+restaurants['Kultainen Tai'] = {}
+restaurants['Curry Palace'] = {}
+restaurants['Hesburger'] = {}
+restaurants['Rax'] = {}
+restaurants['Subway'] = {}
+restaurants['Picnic'] = {}
+restaurants['Persian Ravintola'] = {}
+restaurants['Peroba Cafe'] = {}
 
 # Add them to the db
 restaurants.each do |name, details|
   r = Restaurant.find_or_create_by_name(name)
   r.url = details[:url]
-  r.parser = details[:parser]
   r.save
 end
 
@@ -52,4 +42,4 @@ end
 Lunch.init_lunches
 
 # Do a scrape
-Rake::Task['scraper:scrape_lunches'].invoke
+Rake::Task['scrape_lunches'].invoke
