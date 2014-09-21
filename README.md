@@ -15,7 +15,7 @@ These include:
 
 ### Adding scraper plugins
 
-Scrapers use very simple plugin architecture. Create a ruby class in `/lib/scraper/plugins/` that registers itself at wRestaurantProcessor (`/lib/scraper/restaurant_processor`) with a regexp for the url pattern it handles and a lambda that takes an url and returns a hash. The hash keys should be dates and values should be arrays of strings that describe the lunches on that day. Check existing plugins for reference.
+Scrapers use very simple plugin architecture. Create a ruby class in `/lib/scraper/plugins/` that registers itself at RestaurantProcessor (`/lib/scraper/restaurant_processor`) with a regexp for the url pattern it handles and a lambda that takes an url and returns a hash. The hash keys should be dates and values should be arrays of strings that describe the lunches on that day. Check existing plugins for reference.
 
 ### Prod.env.notes
 
