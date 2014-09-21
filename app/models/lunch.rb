@@ -28,26 +28,6 @@ class Lunch < ActiveRecord::Base
     return with_lunch_items, without_lunch_items
   end
 
-  # Initializes lunches for a week forward. Weekends excluded.
-  def self.init_lunches
-    dates = []
-
-    for i in 0..6
-      d = Date.today + i.days
-      unless d.saturday? || d.sunday?
-        dates << d
-      end
-    end
-
-    restaurants = Restaurant.all
-
-    restaurants.each do |r|
-      dates.each do |d|
-        Lunch.find_or_create_by_restaurant_id_and_date(:restaurant_id => r.id, :date => d)
-      end
-    end
-  end
-
   def add_vote
     self.votes = self.votes + 1
     self.save
