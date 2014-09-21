@@ -37,7 +37,7 @@ Basic steps for production installation. Only going to go through here what is a
 
 And some additional info for steps 4 and 5.
 
-## Install Passengerer (step 4)
+## Install Passenger (step 4)
 
 ```sh
 gem install passenger
