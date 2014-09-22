@@ -23,7 +23,7 @@ class PerobaPlugin
           lunch_items = []
 
           until content_arr.first.nil?  || content_arr.first =~ /(maanantai|tiistai|keskiviikko|torstai|perjantai)/i
-            lunch_items << content_arr.shift.gsub(/\s\|.*$/, '')
+            lunch_items << content_arr.shift.gsub(/\s*\|.*$/, '')
           end
 
           parsed_results[monday + i] = lunch_items
