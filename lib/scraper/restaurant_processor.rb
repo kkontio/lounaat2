@@ -39,8 +39,12 @@ class RestaurantProcessor
     _, parser = @patterns.find{|p, _| r.url =~ p}
 
     if parser
-      lunches = parser.call(r.url)
-      save_parsed_lunches(r, lunches)
+      begin
+        lunches = parser.call(r.url)
+        save_parsed_lunches(r, lunches)
+      rescue
+        STDERR.puts "Plugin failed while parsing: #{r.url}"
+      end
     end
   end
 

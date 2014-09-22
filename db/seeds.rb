@@ -29,7 +29,7 @@ restaurants['Rax'] = {}
 restaurants['Subway'] = {}
 restaurants['Picnic'] = {}
 restaurants['Persian Ravintola'] = {}
-restaurants['Peroba Cafe'] = {}
+restaurants['Peroba Cafe'] = {:url = 'http://www.perobacafe.fi/index.php/lounas/'}
 
 # Add them to the db
 restaurants.each do |name, details|

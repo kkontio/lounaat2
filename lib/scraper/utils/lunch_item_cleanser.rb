@@ -30,7 +30,7 @@ class LunchItemCleanser
       s[0] = ''
     end
 
-    s[0] = Unicode::capitalize(s[0])
+    s[0] = Unicode::capitalize(s[0]) unless s[0].nil?
 
     return s
   end
@@ -41,7 +41,7 @@ class LunchItemCleanser
   #
   # Returns string with nicer allergy acronyms.
   def self.beautify_allergies(s)
-    if s.empty?
+    if s.nil? || s.empty?
       return
     end
 
@@ -62,7 +62,7 @@ class LunchItemCleanser
   #
   # Returns string with nicer price representation.
   def self.beautify_prices(s)
-    if s.empty?
+    if s.nil? || s.empty?
       return
     end
 
