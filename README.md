@@ -4,7 +4,7 @@ http://lounaat2.fi
 
 ##### Rails app for displaying lunch serving restaurants around Leppävaara/Sello area.
 
-### Notes
+## Notes
 
 Copy the .example config files over and edit them to your liking.
 
@@ -17,13 +17,13 @@ These include:
 
 Scrapers use very simple plugin architecture. Create a ruby class in `/lib/scraper/plugins/` that registers itself at RestaurantProcessor (`/lib/scraper/restaurant_processor`) with a regexp for the url pattern it handles and a lambda that takes an url and returns a hash. The hash keys should be dates and values should be arrays of strings that describe the lunches on that day. Check existing plugins for reference.
 
-### Prod.env.notes
+## Prod.env.notes
 
 Production environment setup in example deployment files is apache/passenger, systemwide rvm, using bundler to install all needed gems to shared/bundle and capistrano for deployment.
 
 Any other server configuration you might wish to use goes as well. These notes serve to support my memory.
 
-## Setting up
+### Setting up
 
 Copy your `database.yml` and `secret_token.rb` files to the appropriate capistrano shared config folder - check `deploy.rb`.
 
