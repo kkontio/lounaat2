@@ -12,11 +12,11 @@ restaurants = {}
 
 restaurants['Café Buffo'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/cafe-buffo/lounaslista-viikko-<cweek>'}
 restaurants["Chico's"] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/chicos/lounaslista-viikko-<cweek>'}
-restaurants['Ravintola Fennia'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/lounaslista-viikko-<cweek>'}
-restaurants['Base'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/lounaslista-viikko-<cweek>'}
+restaurants['Ravintola Fennia'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/lounaslista-viikko-<cweek>-0'}
+restaurants['Base'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/lounaslista-viikko-<cweek>-0'}
 restaurants['GLO Grill Kitchen'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/lounaslista-viikko-<cweek>'}
-restaurants['Retro'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/lounaslista-viikko-<cweek>'}
-restaurants['Lokki'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/il-gabbiano/lounaslista-viikko-<cweek>'}
+restaurants['Retro'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/lounaslista-viikko-<cweek>-0'}
+restaurants['Lokki'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/il-gabbiano/lounaslista-viikko-<cweek>-0'}
 restaurants['Kotipizza'] = {}
 restaurants["Robert's Coffee"] = {}
 restaurants['Lime Leaf'] = {}
@@ -30,6 +30,7 @@ restaurants['Subway'] = {}
 restaurants['Picnic'] = {}
 restaurants['Persian Ravintola'] = {}
 restaurants['Peroba Cafe'] = {:url => 'http://www.perobacafe.fi/index.php/lounas/'}
+restaurants['Kathmandu Palace'] = {}
 
 # Add them to the db
 restaurants.each do |name, details|
