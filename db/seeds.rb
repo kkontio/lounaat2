@@ -15,7 +15,7 @@ restaurants["Chico's"] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-ka
 restaurants['Ravintola Fennia'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-fennia/lounaslista-viikko-<cweek>-0'}
 restaurants['Base'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-base/lounaslista-viikko-<cweek>-0'}
 restaurants['GLO Grill Kitchen'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/glo-grill-kitchen/lounaslista-viikko-<cweek>'}
-restaurants['Retro'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/lounaslista-viikko-<cweek>-0'}
+restaurants['Retro'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/ravintola-retro/lounaslista-viikko-<cweek>'}
 restaurants['Lokki'] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/il-gabbiano/lounaslista-viikko-<cweek>-0'}
 restaurants['Kotipizza'] = {}
 restaurants["Robert's Coffee"] = {}
