@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class RestaurantsController < ApplicationController
   def lunch_of_the_day
-    r = Restaurant.where("lower(restaurants.name) like ?", "%#{params[:restaurant].downcase}%").first
+    r = Restaurant.where("lower(restaurants.name) like ?", "%#{params[:text].downcase}%").first
 
     not_found if r.nil?
 
