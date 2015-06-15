@@ -105,7 +105,7 @@ class RestaurantsController < ApplicationController
       post_vote_to_slack(r, l, params[:user_name], params[:channel_name])
     end
 
-    feedback = "#{r.name} kuinkas muuten!"
+    feedback = "#{r.name}, kuinkas muuten!"
     
     respond_to do |format|
       format.html { render :text => feedback}
