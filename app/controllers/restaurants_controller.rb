@@ -53,6 +53,8 @@ class RestaurantsController < ApplicationController
   end
 
   def vote
+    not_found unless params[:token] == ENV['SLACK_VOTE_TOKEN']
+
     r = Restaurant.where("lower(restaurants.name) like ?", "%#{params[:text].downcase}%").first
 
     # Aand error handling is not very good either.
