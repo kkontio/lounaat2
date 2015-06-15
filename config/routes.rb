@@ -5,6 +5,8 @@ Lounas::Application.routes.draw do
     end
   end
 
+  # Non resource, non restful routes for simple slack api
+  get ':restaurants/lunch_of_the_day', to: 'restaurants#lunch_of_the_day'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
