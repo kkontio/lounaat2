@@ -9,6 +9,7 @@ gem 'unicode'
 gem 'google-webfonts'
 gem 'jquery-rails'
 gem 'whenever', :require => false
+gem 'slack-post'
 
 # Deploy with Capistrano
 gem 'capistrano'
