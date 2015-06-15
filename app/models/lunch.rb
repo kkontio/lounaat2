@@ -48,6 +48,7 @@ class Lunch < ActiveRecord::Base
     end
   end
 
+  # this is incredibly stupid for numerous reasons, but it is so nicely KISS for our level of requirement
   def add_vote
     self.votes = self.votes + 1
     self.save
