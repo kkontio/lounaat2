@@ -7,11 +7,30 @@ class RestaurantsController < ApplicationController
 
     r = Restaurant.where("lower(restaurants.name) like ?", "%#{params[:text].downcase}%").first
 
-    not_found if r.nil?
+    # Aand error handling is not very good either.
+    if r.nil?
+      feedback = "Ravintolaa ei löydy."
+    
+      respond_to do |format|
+        format.html { render :text => feedback}
+        format.text { render :text => feedback}
+      end
+
+      return false
+    end
 
     l = Lunch.find_by_restaurant_id_and_date(r.id, Date.today)
 
-    not_found if l.nil?
+    if l.nil?
+    feedback = "Lounaita ei löydy."
+    
+      respond_to do |format|
+        format.html { render :text => feedback}
+        format.text { render :text => feedback}
+      end
+
+      return false
+    end
 
     lunch_items = LunchItem.joins(:lunch => :restaurant)
       .where("restaurants.id = ?", r.id)
