@@ -39,6 +39,7 @@ class RestaurantsController < ApplicationController
     lunch_items = LunchItem.joins(:lunch => :restaurant)
       .where("restaurants.id = ?", r.id)
       .where("lunches.date = ?", Date.today)
+      .order(:id)
 
     fallback_response = construct_fallback_response r, lunch_items
 
