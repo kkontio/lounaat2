@@ -1,6 +1,7 @@
 # encoding: UTF-8
 require 'nokogiri'
 require 'open-uri'
+require 'net/http'
 require 'date'
 require 'unicode'
 require 'scraper/utils/parser_utils'

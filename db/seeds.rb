@@ -34,7 +34,7 @@ restaurants['Fuku Supreme'] = {}
 restaurants['Burger King'] = {}
 restaurants["Tommi's kitchen"] = {:url => 'http://www.tommiskitchen.fi/'}
 restaurants["O'Learys"] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/olearys/lounaslista-viikko-<cweek>'}
-restaurants['K1'] = {}
+restaurants['K1'] = {:url => 'http://www.kanresta.fi/app/lunchlist/view/'}
 
 # Add them to the db
 restaurants.each do |name, details|
