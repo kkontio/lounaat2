@@ -4,9 +4,8 @@
     %title Lounaat²
     = stylesheet_link_tag 'application', :media => 'all'
     = javascript_include_tag 'application'
-    = google_webfonts_link_tag :mr_dafoe
-    = google_webfonts_link_tag :roboto => [300]
-    = google_webfonts_link_tag :roboto_slab => [300, 400]
+    = google_webfonts_link_tag :orbitron
+    = google_webfonts_link_tag :share_tech_mono
     = csrf_meta_tags
     %meta{:name => 'description', :content => 'Lounasravintolat Espoon Leppävaaran kauppakeskus Sellon läheisyydessä.'}
     %meta{:name => 'keywords', :content => 'lounas,lounaspaikka,lounasravintola,Sello,Espoo,Leppävaara'}
@@ -17,17 +16,17 @@
     - #bloody ugly hack. should just start using bootstrap properly
     %header.jumbotron.container-fluid.hidden-xs
       %h1.smaller
-        %span.blue> Lounaat
-        %span.red> ²
+        %span.blue> lan
+        %span.red> 5
       %h4
-        Ante prandium
+        Max pwnium
 
     %header.jumbotron.smaller.container-fluid.hidden-sm.hidden-md.hidden-lg
       %h1.smaller
-        %span.blue> Lounaat
-        %span.red> ²
+        %span.blue> Lan
+        %span.red> 5
       %h4
-        Ante prandium
+        Max pwnium
 
 
     - if flash[:error]
