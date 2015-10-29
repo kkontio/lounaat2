@@ -32,7 +32,7 @@ restaurants['Peroba Cafe'] = {:url => 'http://www.perobacafe.fi/index.php/lounas
 restaurants['Kathmandu Palace'] = {}
 restaurants['Fuku Supreme'] = {}
 restaurants['Burger King'] = {}
-restaurants["Tommi's kitchen"] = {}
+restaurants["Tommi's kitchen"] = {:url => 'http://www.tommiskitchen.fi/'}
 restaurants["O'Learys"] = {:url => 'http://www.sello.fi/liikkeet/ravintolat-ja-kahvilat/olearys/lounaslista-viikko-<cweek>'}
 restaurants['K1'] = {}
 
