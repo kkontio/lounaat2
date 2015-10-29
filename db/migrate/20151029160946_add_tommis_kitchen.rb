@@ -4,6 +4,6 @@ class AddTommisKitchen < ActiveRecord::Migration
   end
 
   def down
-    Restaurant.find_or_create_by_name("Tommi's kitchen")
+    Restaurant.find_by_name("Tommi's kitchen").destroy
   end
 end
