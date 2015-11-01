@@ -1,7 +1,7 @@
 %h4.restaurant_header
   %span.restaurant_name
     = lunch.restaurant.name
-  %span.restaurant_votes
+  %span.restaurant_votes.blue
     - [lunch.votes, 5].min.times do
       %i.fa.fa-star
     - unless session[:votes].include?(lunch.id.to_s) || lunch.votes > 4

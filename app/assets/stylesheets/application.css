@@ -18,28 +18,27 @@ header.jumbotron {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    background-color: #171717;
-    border-bottom: 1px solid #c7d956;
+    box-shadow: 0 2px 2px #888;
+    background-color: #ebebeb;
 }
 
 header.jumbotron h1 {
-    font-family: "Orbitron",sans-serif;
+    font-family: "Mr Dafoe",sans-serif;
     font-weight: normal;
     font-size: 125px;
 }
 
 header.jumbotron.smaller h1 {
-    font-family: "Orbitron",sans-serif;
+    font-family: "Mr Dafoe",sans-serif;
     font-weight: normal;
     font-size: 65px;
 }
 
 header.jumbotron h4 {
-    font-family: "Share Tech Mono",sans-serif;
+    font-family: "Roboto Slab",sans-serif;
     font-weight: 300;
     font-style: italic;
     font-size: 25px;
-    color: #ff8700;
 }
 
 /* Generic content stuff */
@@ -48,28 +47,23 @@ header.jumbotron h4 {
 }
 
 .blue {
-    color: #35b8db;
+    color: #008ED6;
 }
 
 .red {
-    color: #e60041;
+    color: #F03335;
 }
 
 #main {
-    font-family: "Orbitron",sans-serif;
-    color: #5d5f4a;
+    font-family: "Roboto Slab",sans-serif;
 }
 
 /* Footer stuff */
 footer {
-    background-color: #171717;
+    background-color: #eeeeee;
     padding: 50px !important;
     margin-top: 30px;
-    border-top: 1px solid #c7d956;
-    font-family: "Share Tech Mono",sans-serif;
+    border-top: 1px solid #E5E5E5;
+    font-family: "Roboto Slab",sans-serif;
     font-size: 20px;
-}
-
-footer a {
-    color: #45d0ee;
 }
