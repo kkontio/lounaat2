@@ -19,7 +19,7 @@ header.jumbotron {
     -moz-border-radius: 0;
     border-radius: 0;
     box-shadow: 0 2px 2px #888;
-    background-color: #ebebeb;
+    background-color: #eaebec;
 }
 
 header.jumbotron h1 {
@@ -60,7 +60,7 @@ header.jumbotron h4 {
 
 /* Footer stuff */
 footer {
-    background-color: #eeeeee;
+    background-color: #eaebec;
     padding: 50px !important;
     margin-top: 30px;
     border-top: 1px solid #E5E5E5;
