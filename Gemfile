@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.21'
+gem 'rails', '3.2.22.5'
 
 gem 'pg'
 gem 'haml'
@@ -13,7 +13,7 @@ gem 'slack-post'
 
 # Deploy with Capistrano
 gem 'capistrano'
-gem 'rvm-capistrano'
+gem 'rvm-capistrano', :require => false
 
 group :development, :test do
   gem 'thin'
@@ -25,6 +25,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'hirb'
+  gem 'test-unit', '~> 3.0'
 end
 
 group :test do
