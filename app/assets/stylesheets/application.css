@@ -12,6 +12,11 @@
  *= require_tree .
  */
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 /* Header stuff */
 header.jumbotron {
     text-align: center;
@@ -56,6 +61,8 @@ header.jumbotron h4 {
 
 #main {
     font-family: "Roboto Slab",sans-serif;
+    min-height: 100%;
+    margin-bottom: -50px;
 }
 
 /* Footer stuff */

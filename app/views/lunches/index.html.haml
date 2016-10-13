@@ -1,26 +1,21 @@
-- @lunches_with_lunch_items.each do |date, lunches|
-  .day.row{:class => date == @lunches_with_lunch_items.keys.first ? 'first_day' : '', :id => "#{date.to_s}"}
-    .row
-      .col-md-6.col-md-offset-3.hidden-md.hidden-lg
-        .textdate.center-block{:class => date == @lunches_with_lunch_items.keys.first ? 'first_day' : ''}
-          %span
-            = date.wday_fi.capitalize + ' ' + date.mday.to_s + '. ' + date.month_fi + 'ta'
+.day.row
+  .row
+    .col-md-6.col-md-offset-3.hidden-md.hidden-lg
+      .textdate.center-block
+        %span
+          Torstai 14. lokakuuta
+  .row
+    .col-md-6.col-md-offset-3
+      .restaurant.center-block
+        .restaurant-wrapper.statement
+          %p
+            Lounaat² lopettaa toimintansa. 
+          %p
+            Kiitos palvelun
+            = succeed '.' do
+              = link_to 'kehitykseen osallistuneille', 'https://github.com/Hegemege'
+            Makoisia ruokaluhetkiä myös tulevaisuudessa! 
+          %p
+            🍴
+          = render 'calendar', :date => Date.new(2016,10,13)
 
-    - lunches.each_with_index do |lunch, i|
-      .row
-        .col-md-6.col-md-offset-3
-          .restaurant.center-block
-            .restaurant-wrapper{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
-              = render(lunch)
-            - if i == 0
-              = render 'calendar', :date => date
-
-    - unless @lunches_without_lunch_items[date].nil?
-      - @lunches_without_lunch_items[date].each_with_index do |lunch, i|
-        .row
-          .col-md-6.col-md-offset-3
-            .restaurant.non-desc-lunch.center-block
-              .restaurant-wrapper{:class => "#{lunch.restaurant.name.gsub(/\s/, '_')}", :id => "lunch_#{lunch.id}"}
-                = render(lunch)
-              - if i == 0 && lunches.empty?
-                = render 'calendar', :date => date

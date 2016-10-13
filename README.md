@@ -1,6 +1,5 @@
 Lounaat²
 ========
-http://lounaat2.fi
 
 ##### Rails app for displaying lunch serving restaurants around Leppävaara/Sello area.
 
